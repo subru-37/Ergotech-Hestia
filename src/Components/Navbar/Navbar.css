@@ -1,0 +1,54 @@
+.parent_navbar{
+    position: fixed;
+    top: 0;
+    min-width: 100vw;
+    border: 1px solid #0C4271;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+.scrolled{
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.2s, opacity 0.2s linear;  
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    width: 90%;
+}
+.navitems{
+    width: 35vw;
+    justify-content: space-evenly;
+    position: relative;
+    left: 50px;
+}
+.navitem{
+    cursor: pointer;
+}
+.logo{
+    font-family: 'Inter', sans-serif;
+}
+.signup{
+    background: #E8F1F5;
+    border: 3px solid #252E56;
+    border-radius: 6px;
+    margin: 0 15px;
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+}
+.signin{
+    background: #252E56;
+    border-radius: 6px;
+    margin: 0 15px; 
+    color: white;
+    border: none;
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+}
