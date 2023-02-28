@@ -8,6 +8,7 @@
     align-items: center;
     justify-content: center;
     transition: 0.2s;
+    background: #E9EDFA;
 }
 .scrolled{
     visibility: hidden;

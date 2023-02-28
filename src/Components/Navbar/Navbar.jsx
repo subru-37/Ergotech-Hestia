@@ -1,8 +1,13 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useContext} from 'react'
+import { ThemeContext } from '../../App';
 import './Navbar.css'
 export default function Navbar() {
+  const {value,setValue} = useContext(ThemeContext);
   const [scroll, setScroll] = useState(false);
   const [scrollp, setScrollP] = useState(window.scrollY);
+  // useEffect(()=>{
+  //   console.log(value)
+  // },[value])
   useEffect(() => {
     window.addEventListener("scroll", navScrolled);
     function navScrolled(e) {
@@ -15,7 +20,6 @@ export default function Navbar() {
       }
       // console.log(scrollp, scroll)
     }
-
     return () => {
       window.removeEventListener("scroll", navScrolled);
     };
@@ -34,8 +38,8 @@ export default function Navbar() {
           </ul>
         </div>
         <div className='buttons'>
-          <button className='signup'>Sign up</button>
-          <button className='signin'>Sign in</button>
+          <button onClick={()=>(setValue(!value))} className='signup'>Sign up</button>
+          <button onClick={()=>(setValue(!value))} className='signin'>Sign in</button>
         </div>
       </div>
     </div>
