@@ -13,24 +13,42 @@
 .ReactModal__Overlay--before-close{
     opacity: 0;
 }
-.signupform{
+.tempdiv{
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
+    min-height: 73vh;
+    min-width: 100%;
+}
+.signupform{
     background: #E9EDFA;
+    min-height: 80vh;
+    min-width: 30vw;
     border-radius: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .formbox{
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
+    width: 100%;
 }
 .modal{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width:'100%'
+    width: 85%;
+    height:100%;
+}
+.Button{
+    background: #BAC6F2;
+    border-radius: 3px;
+    min-width: 85%;
+    min-height: 56px;
+    cursor: pointer;
 }

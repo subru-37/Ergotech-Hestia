@@ -6,13 +6,17 @@ import City from '../../Assets/City.png';
 import TextField from '@mui/material/TextField';
 const customStyles = {
     content: {
-      top: '50%',
+      top: '53%',
       left: '50%',
       right: 'auto',
       bottom: 'auto',
     //   marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
-      minWidth:'50vw'
+      minWidth:'80vw',
+      minHeight:'85vh',
+      display:'flex',
+      alignItems:'center',
+      justifyContent:'space-around'
     },
     overlay: {
         backgroundColor: 'transparent'
@@ -26,7 +30,8 @@ export default function SignupModal() {
             email:'',
             acctype:'',
             pass:'',
-            confirmpass:''
+            confirmpass:'',
+            signedin: true
           })
         setValue(false)
         event.preventDefault();
@@ -54,7 +59,7 @@ export default function SignupModal() {
         closeTimeoutMS={100}
         shouldFocusAfterRender={true}
         shouldCloseOnOverlayClick={false}
-        isOpen={value}
+        isOpen={value && (!auth.signedin)}
         // onAfterOpen={afterOpenModal}
         onRequestClose={()=>(setValue(false))}
         style={customStyles}
@@ -63,12 +68,13 @@ export default function SignupModal() {
         {/* <button onClick={()=>(setValue(false))}>close</button> */}
         <div className='modal'>
             <div className='image'>
-                <img src={City} alt='' style={{width: '350px',height: '250px'}}></img>
+                <img src={City} alt='' style={{width: '400px',height: '300px'}}></img>
             </div>
-            <div className='signupform' style={{minWidth:'40%'}}>
-                <h1 style={{margin:'10px 0'}}>Sing up</h1>
-                <h5 style={{margin:'0 0 10px 0'}}>Let's get started with Hestia!</h5>
-                <form className='formbox' method='post'>
+            <div className='signupform'>
+                <div className='tempdiv'>
+                  <h2>Sign up</h2>
+                <h5>Let's get started with Hestia!</h5>
+                <form className='formbox' onSubmit={handleSubmit} method='post'>
                 <TextField 
                 name='name'
                 required
@@ -76,8 +82,8 @@ export default function SignupModal() {
                 value={auth.name}
                 onChange={handleChange} 
                 sx={{
-                    width: '100%',
-                    margin: '0 0 15px 0',
+                    width: '85%',
+                    margin: '0 0 10px 0',
                     '& .MuiOutlinedInput-root':{
                         backgroundColor:'#F8F8FF',
                         color:'black',
@@ -112,8 +118,8 @@ export default function SignupModal() {
                 type="email"
                 onChange={handleChange} 
                 sx={{
-                    width: '100%',
-                    margin: '0 0 15px 0',
+                    width: '85%',
+                    margin: '0 0 10px 0',
                     '& .MuiOutlinedInput-root':{
                         backgroundColor:'#F8F8FF',
                         color:'black',
@@ -147,8 +153,8 @@ export default function SignupModal() {
                 value={auth.acctype}
                 onChange={handleChange} 
                 sx={{
-                    width: '100%',
-                    margin: '0 0 15px 0',
+                    width: '85%',
+                    margin: '0 0 10px 0',
                     '& .MuiOutlinedInput-root':{
                         backgroundColor:'#F8F8FF',
                         color:'black',
@@ -183,8 +189,8 @@ export default function SignupModal() {
                 type='password'
                 onChange={handleChange} 
                 sx={{
-                    width: '100%',
-                    margin: '0 0 15px 0',
+                    width: '85%',
+                    margin: '0 0 10px 0',
                     '& .MuiOutlinedInput-root':{
                         backgroundColor:'#F8F8FF',
                         color:'black',
@@ -219,8 +225,8 @@ export default function SignupModal() {
                 type='password'
                 onChange={handleChange} 
                 sx={{
-                    width: '100%',
-                    margin: '0 0 15px 0',
+                    width: '85%',
+                    margin: '0 0 10px 0',
                     '& .MuiOutlinedInput-root':{
                         backgroundColor:'#F8F8FF',
                         color:'black',
@@ -247,8 +253,10 @@ export default function SignupModal() {
                 variant='outlined'
                 label="Confirm Password" 
                 id="outlined-basic"/>
-                <button onClick={handleSubmit}>Sign up</button>
+                <button name='signedin' className='Button'>Sign up</button>
+                <button style={{border:'none',background:'transparent',cursor:'pointer',margin:'10px 0'}}>Already have an account? Log in</button>
                 </form>
+                </div>
             </div>
         </div>
       </Modal>

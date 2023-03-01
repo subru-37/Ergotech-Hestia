@@ -10,7 +10,8 @@ function App() {
     email:'',
     acctype:'',
     pass:'',
-    confirmpass:''
+    confirmpass:'',
+    signedin: false
   });
   useEffect(()=>{
     console.log(auth)
