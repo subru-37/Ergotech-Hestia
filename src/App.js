@@ -1,4 +1,4 @@
-import React,{useState,createContext,useEffect} from 'react';
+import React,{useState,createContext} from 'react';
 import './App.css';
 import Landing from './Pages/Landing/Landing';
 import SignupModal from './Components/Signupmodal/SignupModal';
@@ -13,9 +13,9 @@ function App() {
     confirmpass:'',
     signedin: false
   });
-  useEffect(()=>{
-    console.log(auth)
-  },[auth])
+  // useEffect(()=>{
+  //   console.log(auth)
+  // },[auth])
   return (
     <div className="App">
       <ThemeContext.Provider value={{value,setValue,auth,setAuth}}>

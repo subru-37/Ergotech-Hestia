@@ -6,7 +6,7 @@ import City from '../../Assets/City.png';
 import TextField from '@mui/material/TextField';
 const customStyles = {
     content: {
-      top: '53%',
+      top: '54%',
       left: '50%',
       right: 'auto',
       bottom: 'auto',
@@ -68,12 +68,12 @@ export default function SignupModal() {
         {/* <button onClick={()=>(setValue(false))}>close</button> */}
         <div className='modal'>
             <div className='image'>
-                <img src={City} alt='' style={{width: '400px',height: '300px'}}></img>
+                <img src={City} alt='' style={{width: '460px',height: '360px'}}></img>
             </div>
             <div className='signupform'>
                 <div className='tempdiv'>
-                  <h2>Sign up</h2>
-                <h5>Let's get started with Hestia!</h5>
+                  <h2 style={{margin:'10px 0'}}>Sign up</h2>
+                <p style={{marginBottom:'10px',fontSize:'15px'}}>Let's get started with Hestia!</p>
                 <form className='formbox' onSubmit={handleSubmit} method='post'>
                 <TextField 
                 name='name'
@@ -103,13 +103,12 @@ export default function SignupModal() {
                       }
                     }
                     }} 
-                InputProps={{style: {color:'black'}}}
+                InputProps={{style: {color:'black',fontFamily:"Inter"}}}
                 InputLabelProps={{
-                  style: { color:'black'},
+                  style: { color:'black',fontFamily:"Inter"},
                 }}
                 variant='outlined'
-                label="Name" 
-                id="outlined-basic"/>
+                label="Name" />
                 <TextField 
                 name='email'
                 required
@@ -139,13 +138,12 @@ export default function SignupModal() {
                       }
                     }
                     }} 
-                InputProps={{style: {color:'black'}}}
+                InputProps={{style: {color:'black',fontFamily:"Inter"}}}
                 InputLabelProps={{
-                  style: { color:'black'},
+                  style: { color:'black',fontFamily:"Inter"},
                 }}
                 variant='outlined'
-                label="Email" 
-                id="outlined-basic"/>
+                label="Email" />
                 <TextField 
                 name='acctype'
                 required
@@ -174,13 +172,12 @@ export default function SignupModal() {
                       }
                     }
                     }} 
-                InputProps={{style: {color:'black'}}}
+                InputProps={{style: {color:'black',fontFamily:"Inter"}}}
                 InputLabelProps={{
-                  style: { color:'black'},
+                  style: { color:'black',fontFamily:"Inter"},
                 }}
                 variant='outlined'
-                label="Account Type" 
-                id="outlined-basic"/>
+                label="Account Type" />
                 <TextField 
                 name='pass'
                 required
@@ -210,13 +207,12 @@ export default function SignupModal() {
                       }
                     }
                     }} 
-                InputProps={{style: {color:'black'}}}
+                InputProps={{style: {color:'black',fontFamily:"Inter"}}}
                 InputLabelProps={{
-                  style: { color:'black'},
+                  style: { color:'black',fontFamily:"Inter"},
                 }}
                 variant='outlined'
-                label="Password" 
-                id="outlined-basic"/>
+                label="Password" />
                 <TextField 
                 name='confirmpass'
                 required
@@ -246,15 +242,14 @@ export default function SignupModal() {
                       }
                     }
                     }} 
-                InputProps={{style: {color:'black'}}}
+                InputProps={{style: {color:'black',fontFamily:"Inter"}}}
                 InputLabelProps={{
-                  style: { color:'black'},
+                  style: { color:'black',fontFamily:"Inter"},
                 }}
                 variant='outlined'
-                label="Confirm Password" 
-                id="outlined-basic"/>
-                <button name='signedin' className='Button'>Sign up</button>
-                <button style={{border:'none',background:'transparent',cursor:'pointer',margin:'10px 0'}}>Already have an account? Log in</button>
+                label="Confirm Password" />
+                <button name='signedin' className='Button'><p style={{fontFamily:'Inter',}}>Sign up!</p></button>
+                <button style={{border:'none',background:'transparent',cursor:'pointer',margin:'10px 0'}}><p style={{fontFamily:'Inter'}}>Already have an account? Log in</p></button>
                 </form>
                 </div>
             </div>
