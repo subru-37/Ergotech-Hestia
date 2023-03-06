@@ -34,7 +34,7 @@ export default function Navbar() {
         <div>
           <ul className='navitems' style={{listStyle:'none',display:'flex',flexDirection:'row'}}>
             <Link to='/' className='navitem'>Home</Link>
-            <Link to='/' className='navitem'>Search</Link>
+            <Link to='/Searcher' className='navitem'>Search</Link>
             <Link to='/' className='navitem'>About Us</Link>
           </ul>
         </div>
