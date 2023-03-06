@@ -16,12 +16,32 @@ function App() {
     confirmpass:'',
     signedin: false
   });
-  // useEffect(()=>{
-  //   console.log(auth)
-  // },[auth])
+  const [search,setSearch] = useState({location:'',name:''})
+  const [filters, setFilters] = useState({
+    sliderValue:[1000,2000],
+    wifi:false,
+    ac: false,
+    food:false,
+    kitchen:false,
+    pets:false,
+    abathroom:false,
+    sdeposit:false,
+    curfew:false,
+    hotwater:false,
+    balcony:false,
+    furnished:false,
+    wheelchair:false,
+    smoking:false,
+    drinking:false,
+    student:false,
+    proffesional:false
+  })
+  React.useEffect(()=>{
+    console.log(filters)
+  },[filters])
   return (
     <div className="App">
-      <ThemeContext.Provider value={{value,setValue,auth,setAuth}}>
+      <ThemeContext.Provider value={{value,setValue,auth,setAuth,search,setSearch,filters,setFilters}}>
         <Navbar/>
         <SignupModal/>
         <Routes>
