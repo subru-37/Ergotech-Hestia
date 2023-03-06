@@ -43,6 +43,12 @@
     height: 40px;
     cursor: pointer;
 }
+.logout{
+    background: #A1B4FB;
+    border-radius: 6px;
+    width: 123px;
+    height: 40px;
+}
 .signin{
     background: #252E56;
     border-radius: 6px;
