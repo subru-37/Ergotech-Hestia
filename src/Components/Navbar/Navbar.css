@@ -30,6 +30,8 @@
 }
 .navitem{
     cursor: pointer;
+    text-decoration: none;
+    color: black;
 }
 .logo{
     font-family: 'Inter', sans-serif;
