@@ -1,9 +1,11 @@
-import React,{useContext} from 'react';
+import React,{useContext, useRef, useState} from 'react';
 import { ThemeContext } from '../../App';
 import Modal from 'react-modal';
 import './SignupModal.css';
+import { useAuth } from '../contexts/AuthContext';
 import City from '../../Assets/City.png';
 import TextField from '@mui/material/TextField';
+
 const customStyles = {
     content: {
       top: '54%',
@@ -22,10 +24,30 @@ const customStyles = {
         backgroundColor: 'transparent'
     }
   };
-
+const emailRef = useRef()
+const passwordRef = useRef()
+const passwordConfirmedRef = useRef()
+const[error,setError] = useState('')
+const [loading,setLoading] = useState(false)
 export default function SignupModal() {
-    function handleSubmit(event){
-        setAuth({
+  const { signup } = useAuth()
+     async function handleSubmit(event){
+        event.preventDefault();
+        if(passwordRef.current.value !== 
+          passwordConfirmedRef.current.value){
+            return setError("Passwords Do Not Match!")
+          }
+
+          try {
+            setError('')
+            setLoading(true)
+            await signup(emailRef.current.value, passwordRef.current.value)
+          } catch {
+            setError("Failed to create account")
+          }
+          setLoading(false)
+
+         /* setAuth({
             name:'',
             email:'',
             acctype:'',
@@ -33,9 +55,9 @@ export default function SignupModal() {
             confirmpass:'',
             signedin: true
           })
-        setValue(false)
-        event.preventDefault();
+        setValue(false) */
     }
+        
     function handleChange(event) {
         const { name, value } = event.target;
         console.log(name,value);
@@ -73,6 +95,7 @@ export default function SignupModal() {
             <div className='signupform'>
                 <div className='tempdiv'>
                   <h2 style={{margin:'10px 0'}}>Sign up</h2>
+                  {error && <h4>{error}</h4>}
                 <p style={{marginBottom:'10px',fontSize:'15px'}}>Let's get started with Hestia!</p>
                 <form className='formbox' onSubmit={handleSubmit} method='post'>
                 <TextField 
@@ -115,6 +138,7 @@ export default function SignupModal() {
                 autoComplete='off'
                 value={auth.email}
                 type="email"
+                ref={emailRef}
                 onChange={handleChange} 
                 sx={{
                     width: '85%',
@@ -184,6 +208,7 @@ export default function SignupModal() {
                 autoComplete='off'
                 value={auth.pass}
                 type='password'
+                ref={passwordRef}
                 onChange={handleChange} 
                 sx={{
                     width: '85%',
@@ -219,6 +244,7 @@ export default function SignupModal() {
                 autoComplete='off'
                 value={auth.confirmpass}
                 type='password'
+                ref={passwordConfirmedRef}
                 onChange={handleChange} 
                 sx={{
                     width: '85%',
@@ -248,7 +274,7 @@ export default function SignupModal() {
                 }}
                 variant='outlined'
                 label="Confirm Password" />
-                <button name='signedin' className='Button'><p style={{fontFamily:'Inter',}}>Sign up!</p></button>
+                <button name='signedin' className='Button' disabled={loading}><p style={{fontFamily:'Inter',}}>Sign up!</p></button>
                 <button style={{border:'none',background:'transparent',cursor:'pointer',margin:'10px 0'}}><p style={{fontFamily:'Inter'}}>Already have an account? Log in</p></button>
                 </form>
                 </div>

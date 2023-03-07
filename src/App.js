@@ -1,5 +1,6 @@
 import React,{useState,createContext} from 'react';
 import './App.css';
+import { AuthProvider } from './Components/contexts/AuthContext';
 import Landing from './Pages/Landing/Landing';
 import SignupModal from './Components/Signupmodal/SignupModal';
 import Navbar from './Components/Navbar/Navbar';
@@ -34,12 +35,14 @@ function App() {
     smoking:false,
     drinking:false,
     student:false,
-    proffesional:false
+    proffessional:false
   })
   React.useEffect(()=>{
     console.log(filters)
   },[filters])
   return (
+    
+    <AuthProvider> 
     <div className="App">
       <ThemeContext.Provider value={{value,setValue,auth,setAuth,search,setSearch,filters,setFilters}}>
         <Navbar/>
@@ -49,7 +52,7 @@ function App() {
           <Route path='/Searcher' element={<Searcher/>}></Route>
         </Routes>
       </ThemeContext.Provider>
-    </div>
+      </div></AuthProvider>
   );
 }
 
