@@ -9,6 +9,7 @@
     justify-content: center;
     transition: 0.2s;
     background: #E9EDFA;
+    z-index: 100;
 }
 .scrolled{
     visibility: hidden;
@@ -48,8 +49,11 @@
 .logout{
     background: #A1B4FB;
     border-radius: 6px;
-    width: 123px;
+    width: 100px;
     height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .signin{
     background: #252E56;
@@ -60,4 +64,20 @@
     width: 100px;
     height: 40px;
     cursor: pointer;
+}
+@media only screen and (max-width:900px){
+    .container{
+        justify-content: center;
+        align-items: center;
+    }
+    .navitems{
+        min-height: 90dvh;
+        justify-content: center;
+    }
+    .navitem{
+        padding:30px;
+    }
+    .logout{
+        margin:35px 20px;
+    }
 }

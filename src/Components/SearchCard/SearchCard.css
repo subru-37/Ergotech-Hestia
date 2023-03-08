@@ -1,0 +1,32 @@
+.card-section{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    background: #D9D9D9;
+    border-radius: 12px;    
+    margin:20px;
+}
+.pic-section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 3px white solid;
+}
+.Image{
+    margin:15px;
+}
+.preview-section{
+    margin: 15px;
+}
+.preview-title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    padding-bottom: 10px;
+}
+.preview-title .title{
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 19px;
+}

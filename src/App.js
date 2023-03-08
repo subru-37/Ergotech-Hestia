@@ -8,6 +8,8 @@ import Searcher from './Pages/Searcher/Searcher';
 export const ThemeContext = createContext();
 function App() {
   const [value,setValue] = useState(false);
+  const [width1,setWidth] = useState(window.innerWidth);
+
   const [auth,setAuth] = useState({
     name:'',
     email:'',
@@ -37,11 +39,17 @@ function App() {
     proffesional:false
   })
   React.useEffect(()=>{
-    console.log(filters)
-  },[filters])
+    window.addEventListener('resize',myFunction)
+    function myFunction(e){
+      setWidth(window.innerWidth)
+    }
+    return() => {
+      window.removeEventListener('resize',myFunction)
+    }
+  },[width1])
   return (
     <div className="App">
-      <ThemeContext.Provider value={{value,setValue,auth,setAuth,search,setSearch,filters,setFilters}}>
+      <ThemeContext.Provider value={{value,setValue,auth,setAuth,search,setSearch,filters,setFilters,width1}}>
         <Navbar/>
         <SignupModal/>
         <Routes>

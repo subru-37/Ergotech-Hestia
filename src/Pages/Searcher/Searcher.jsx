@@ -7,9 +7,12 @@ import './Searcher.css';
 import Slider from '@mui/material/Slider';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import {Checkbox} from '@mui/material';
+import SearchCard from '../../Components/SearchCard/SearchCard';
+import CloseIcon from '@mui/icons-material/Close';
+import { preview } from '../../Assets/data';
 const checklist = ['wifi','ac','food','kitchen','pets','abathroom','sdeposit','curfew','hotwater','balcony','furnished','wheelchair']
 export default function Searcher() {
-    const {search,setSearch,filters,setFilters} = useContext(ThemeContext);
+    const {search,setSearch,filters,setFilters,width1} = useContext(ThemeContext);
     const [drawer, setDrawer] = React.useState(false);
     const toggleDrawer = (open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -49,13 +52,13 @@ export default function Searcher() {
           };
         }
         );
-        console.log(name,value)
+        // console.log(name,value)
       }
   return (
     <div className='sett parent_searcher'>
         <div style={{padding:'30px 0',width:'80%'}}>
             <form className='search' style={{width:'100%',padding:'10px 0'}} onSubmit={handleSubmit} method='post'>
-            <button style={{border:'none',padding:'0 20px 10px 0',background:'transparent'}} onClick={toggleDrawer(true)}><MenuIcon sx={{fontSize:'40px'}}/></button>
+            <button style={{border:'none',padding:'0 20px 10px 0',background:'transparent', display: width1>900 ?'none':'block'}} onClick={toggleDrawer(true)}><MenuIcon sx={{fontSize:'40px'}}/></button>
             <TextField 
                 name='name'
                 autoComplete='off'
@@ -127,49 +130,99 @@ export default function Searcher() {
                 <button className='search_button'><h3 style={{color:'white',fontWeight:'400'}}>Search</h3></button>
             </form>
         </div>
-        <div className='search_content' style={{display:'flex',alignItems:'center',justifyContent:'space-between',width:'90%',flexDirection:'row'}}>
-                
-                <Drawer
-                    anchor='left'
-                    open={drawer}
-                    onClose={toggleDrawer(false)}
-                    sx={{'& .MuiPaper-root':{
-                      backgroundColor:'#F6F6F6'
-                    }}}
-                >
-                    <div className='filters' style={{display:'flex',justifyContent:'space-around',alignItems:'center',flexDirection:'column'}}>
-                      <div style={{borderBottom:'3px solid #F6F6F6',width:'120%',display:'flex',alignItems:'center',justifyContent:'center'}}><h2>Filters</h2></div>
-                      <div style={{display:'flex',width:'100%',flexDirection:'column',padding:'10px'}}>
-                        <h3>Price</h3>
-                        <div style={{width:'100%'}}>
-                          <Slider
-                              sx={{width:'20vw'}}
-                              getAriaLabel={() => 'Price Range'}
-                              value={filters.sliderValue}
-                              onChange={handleSlider}
-                              valueLabelDisplay="auto"
-                              getAriaValueText={(value)=>(`${value}°C`)}
-                              step={100}
-                              min={1000}
-                              max={10000}
-                              size='small'
-                          />
-                        </div>
-                    </div>
-                    <div style={{borderBottom:'3px solid #F6F6F6',width:'120%',display:'flex',alignItems:'center',justifyContent:'center'}}><h2>Facilities</h2></div>
-                    <div style={{display:'flex',alignItems:'flex-start',flexDirection:'column',width:'80%'}}>
-                    {checklist.map((value,index)=>{
-                      return(
-                        <FormControlLabel key={index} control={<Checkbox 
-                        name={value} 
-                        checked={filters.value} 
-                        sx={{ '& .MuiSvgIcon-root': { fontSize:22  } }} 
-                        onChange={handleCheck}></Checkbox>} label={value} />
-                      );
-                    })}
-                    </div>
-                </div>
-                </Drawer>
+        <div className='search_content' style={{display:'flex',alignItems:'center',justifyContent:'space-between',width:'95%',flexDirection:'row'}}>
+        <div className='filters' style={{display: width1<900?'none':'flex',justifyContent:'space-around',alignItems:'center',flexDirection:'column'}}>
+            <div style={{borderBottom:'3px solid #F6F6F6',width:'120%',display:'flex',alignItems:'center',justifyContent:'center'}}><h2 style={{padding:'20px 0'}}>Filters</h2></div>
+            <div style={{display:'flex',width:'100%',flexDirection:'column',padding:'10px'}}>
+              <h3>Price</h3>
+              <div style={{width:'100%'}}>
+                <Slider
+                    sx={{width:'20vw'}}
+                    getAriaLabel={() => 'Price Range'}
+                    value={filters.sliderValue}
+                    onChange={handleSlider}
+                    valueLabelDisplay="auto"
+                    getAriaValueText={(value)=>(`${value}°C`)}
+                    step={100}
+                    min={1000}
+                    max={10000}
+                    size='small'
+                />
+              </div>
+          </div>
+          <div style={{borderBottom:'3px solid #F6F6F6',width:'120%',display:'flex',alignItems:'center',justifyContent:'center'}}><h2 style={{padding:'20px 0'}}>Facilities</h2></div>
+          <div style={{display:'flex',alignItems:'flex-start',flexDirection:'column',width:'80%'}}>
+          {checklist.map((value,index)=>{
+            return(
+              <FormControlLabel key={index} control={<Checkbox 
+              name={value} 
+              checked={filters.value} 
+              sx={{ '& .MuiSvgIcon-root': { fontSize:22  } }} 
+              onChange={handleCheck}></Checkbox>} label={value} />
+            );
+          })}
+          </div>
+      </div>
+              <Drawer
+                      anchor='left'
+                      open={drawer}
+                      onClose={toggleDrawer(false)}
+                      sx={{'& .MuiPaper-root':{
+                        backgroundColor:'#F6F6F6',
+                        width: {xs: '90vw',sm:'50vw'},
+                        display:'flex',
+                        alignItems:'flex-end'
+                      }}}
+                  >
+                  <button style={{border:'none',padding:'20px 20px 10px 0',background:'transparent', display: width1>600 ?'none':'block'}} onClick={toggleDrawer(false)}><CloseIcon sx={{fontSize:'40px'}}/></button>
+                      <div className='filters' style={{display:'flex',justifyContent:'space-around',alignItems:'center',flexDirection:'column',width:'100%'}}>
+                        <div style={{borderBottom:'3px solid #F6F6F6',width:'120%',display:'flex',alignItems:'center',justifyContent:'center'}}><h2 style={{padding:'20px 0'}}>Filters</h2></div>
+                        <div style={{display:'flex',width:'100%',flexDirection:'column',padding:'10px'}}>
+                          <h3>Price</h3>
+                          <div style={{width:'100%'}}>
+                            <Slider
+                                sx={{width:{sm:'100%',lg:'20vw'}}}
+                                getAriaLabel={() => 'Price Range'}
+                                value={filters.sliderValue}
+                                onChange={handleSlider}
+                                valueLabelDisplay="auto"
+                                getAriaValueText={(value)=>(`${value}°C`)}
+                                step={100}
+                                min={1000}
+                                max={10000}
+                                size='small'
+                            />
+                          </div>
+                      </div>
+                      <div style={{borderBottom:'3px solid #F6F6F6',width:'120%',display:'flex',alignItems:'center',justifyContent:'center'}}><h2 style={{padding:'20px 0'}}
+                      >Facilities</h2></div>
+                      <div style={{display:'flex',alignItems:'flex-start',flexDirection:'column',width:'90%'}}>
+                      {checklist.map((value,index)=>{
+                        return(
+                          <FormControlLabel key={index} control={<Checkbox 
+                          name={value} 
+                          checked={filters.value} 
+                          sx={{ '& .MuiSvgIcon-root': { fontSize:22  } }} 
+                          onChange={handleCheck}></Checkbox>} label={value} />
+                        );
+                      })}
+                      </div>
+                  </div>
+                  </Drawer>
+              
+              <div style={{display:'flex',alignItems:'center',flexDirection:'column',justifyContent:'space-around'}}>
+              <h2>Showing Results For ....</h2>
+              {preview.map(({id,name,mw,description})=>{
+                return(
+                  <SearchCard 
+                    key={id}
+                    title={name}
+                    mw={mw}
+                    description={description}
+                    />
+                );
+              })}
+              </div>
         </div>
     </div>
   )

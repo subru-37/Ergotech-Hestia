@@ -4,24 +4,6 @@ import Modal from 'react-modal';
 import './SignupModal.css';
 import City from '../../Assets/City.png';
 import TextField from '@mui/material/TextField';
-const customStyles = {
-    content: {
-      top: '54%',
-      left: '50%',
-      right: 'auto',
-      bottom: 'auto',
-    //   marginRight: '-50%',
-      transform: 'translate(-50%, -50%)',
-      minWidth:'80vw',
-      minHeight:'85vh',
-      display:'flex',
-      alignItems:'center',
-      justifyContent:'space-around'
-    },
-    overlay: {
-        backgroundColor: 'transparent'
-    }
-  };
 
 export default function SignupModal() {
     function handleSubmit(event){
@@ -38,7 +20,7 @@ export default function SignupModal() {
     }
     function handleChange(event) {
         const { name, value } = event.target;
-        console.log(name,value);
+        // console.log(name,value);
         setAuth((preValue) => {
           return {
             ...preValue,
@@ -48,7 +30,28 @@ export default function SignupModal() {
         );
       }
     // let subtitle;
-  const {value,setValue,auth,setAuth} = useContext(ThemeContext);
+  const {value,setValue,auth,setAuth,width1} = useContext(ThemeContext);
+  const customStyles = {
+    content: {
+      top: width1>900? '54%':'52%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+    //   marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      minWidth:'80vw',
+      minHeight:'85vh',
+      display:'flex',
+      alignItems:'center',
+      justifyContent:'space-around',
+      background: width1<900 ? 'transparent' : 'white',
+      border:width1<900 ? 'none' : '1px solid rgb(204, 204, 204)',
+       },
+    overlay: {
+        zIndex:'1000',
+
+    }
+  };
 //   function afterOpenModal() {
 //     // references are now sync'd and can be accessed.
 //     subtitle.style.color = '#f00';
@@ -68,7 +71,7 @@ export default function SignupModal() {
         {/* <button onClick={()=>(setValue(false))}>close</button> */}
         <div className='modal'>
             <div className='image'>
-                <img src={City} alt='' style={{width: '460px',height: '360px'}}></img>
+                <img src={City} alt='' style={{width: '460px',height: '360px',display: width1>900?'block':'none'}}></img>
             </div>
             <div className='signupform'>
                 <div className='tempdiv'>
