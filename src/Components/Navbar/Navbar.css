@@ -73,11 +73,21 @@
     .navitems{
         min-height: 90dvh;
         justify-content: center;
+    }.signup,.signin{
+        margin:45px 15px ;
     }
     .navitem{
         padding:30px;
     }
     .logout{
         margin:35px 20px;
+    }
+}
+@media only screen and (max-width:600px){
+    .navitem{
+        padding-left: 0;
+    }
+    .signup,.signin{
+        margin-left: 0;
     }
 }

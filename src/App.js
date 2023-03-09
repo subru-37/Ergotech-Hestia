@@ -2,12 +2,14 @@ import React,{useState,createContext} from 'react';
 import './App.css';
 import Landing from './Pages/Landing/Landing';
 import SignupModal from './Components/Signupmodal/SignupModal';
+import SigninModal from './Components/Signinmodal/SigninModal';
 import Navbar from './Components/Navbar/Navbar';
 import { Routes, Route } from "react-router-dom";
 import Searcher from './Pages/Searcher/Searcher';
 export const ThemeContext = createContext();
 function App() {
-  const [value,setValue] = useState(false);
+  const [signin,setSignin] = useState(false);
+  const [signup,setSignup] = useState(false);
   const [width1,setWidth] = useState(window.innerWidth);
 
   const [auth,setAuth] = useState({
@@ -49,9 +51,10 @@ function App() {
   },[width1])
   return (
     <div className="App">
-      <ThemeContext.Provider value={{value,setValue,auth,setAuth,search,setSearch,filters,setFilters,width1}}>
+      <ThemeContext.Provider value={{signup,signin,setSignin,setSignup,auth,setAuth,search,setSearch,filters,setFilters,width1}}>
         <Navbar/>
         <SignupModal/>
+        <SigninModal/>
         <Routes>
           <Route path='/' element={<Landing/>}></Route>
           <Route path='/Searcher' element={<Searcher/>}></Route>

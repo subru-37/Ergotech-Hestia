@@ -5,7 +5,7 @@ import SegmentIcon from '@mui/icons-material/Segment';
 import {Drawer} from '@mui/material';
 import './Navbar.css'
 export default function Navbar() {
-  const {value,setValue,auth,setAuth,width1} = useContext(ThemeContext);
+  const {signin,setSignin,signup,setSignup,auth,setAuth,width1} = useContext(ThemeContext);
   const [scroll, setScroll] = useState(false);
   const [scrollp, setScrollP] = useState(window.scrollY);
   const [drawer, setDrawer] = React.useState(false);
@@ -60,8 +60,8 @@ export default function Navbar() {
   }))}><h3 style={{fontWeight:'400',cursor:'pointer'}}>Log out</h3></button> 
                             :
     <div style={{display:'flex',alignItems:'center',flexDirection:'row'}}>
-      <button style={{display: width1>900 ? 'flex' : 'none',alignItems:'center',justifyContent:'center'}} onClick={()=>(setValue(!value))} className='signup'>Sign up</button>
-      <button style={{display: width1>900 ? 'flex' : 'none',alignItems:'center',justifyContent:'center'}} onClick={()=>(setValue(!value))} className='signin'>Sign in</button>
+      <button style={{display: width1>900 ? 'flex' : 'none',alignItems:'center',justifyContent:'center'}} onClick={()=>(setSignup(!signup))} className='signup'>Sign up</button>
+      <button style={{display: width1>900 ? 'flex' : 'none',alignItems:'center',justifyContent:'center'}} onClick={()=>(setSignin(!signin))} className='signin'>Sign in</button>
     </div> 
           }
         </div>
@@ -72,7 +72,7 @@ export default function Navbar() {
             onClose={toggleDrawer(false)}
             sx={{'& .MuiPaper-root':{
               backgroundColor:'#F6F6F6',
-              width: {xs: '90vw',sm:'50vw'},
+              width: {xs: '80vw',sm:'50vw'},
               display:'flex',
               alignItems:'center',
               justifyContent:'center'
@@ -96,13 +96,13 @@ export default function Navbar() {
   }}><h3 style={{fontWeight:'400',cursor:'pointer'}}>Log out</h3></button> 
                             :
                             <div>
-                            <button style={{display: 'flex',alignItems:'center',justifyContent:'center',margin:'45px 15px'}} onClick={()=>{
+                            <button style={{display: 'flex',alignItems:'center',justifyContent:'center'}} onClick={()=>{
                                                                                                                 setDrawer(false)
-                                                                                                                setValue(!value)
+                                                                                                                setSignup(!signup)
               }} className='signup'>Sign up</button>
-              <button style={{display: 'flex',alignItems:'center',justifyContent:'center',margin:'45px 15px'}} onClick={()=>{
+              <button style={{display: 'flex',alignItems:'center',justifyContent:'center'}} onClick={()=>{
                                                                                                                 setDrawer(false)
-                                                                                                                setValue(!value)
+                                                                                                                setSignin(!signin)
               }} className='signin'>Sign in</button>
                             </div>
         }

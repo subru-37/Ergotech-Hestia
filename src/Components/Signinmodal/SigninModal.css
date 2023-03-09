@@ -1,42 +1,29 @@
-.ReactModal__Body--open {
-    overflow: hidden;
-}
-.ReactModal__Overlay {
-    opacity: 0;
-    transition: opacity 100ms ease-in-out;
-}
-
-.ReactModal__Overlay--after-open{
-    opacity: 1;
-}
-
-.ReactModal__Overlay--before-close{
-    opacity: 0;
-}
-.tempdiv-signup{
+.signin-modal{
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: space-around;
-    flex-direction: column;
-    min-width: 100%;
+    justify-content: center;
+    width: 85%;
+    height:100%;
 }
-.signupform{
+.signinform{
     background: #E9EDFA;
-    min-height: 83vh;
-    min-width: 30vw;
+    min-height: 60vh;
     border-radius: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
+    border:5px solid rgb(204, 204, 204);
 }
-.formbox{
+.tempdiv-signin{
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
-    width: 100%;
+    min-height: 40vh;
+    min-width: 100%;
 }
-.signup-modal{
+.signin-modal{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -52,27 +39,27 @@
     margin-top: 25px;
 }
 @media only screen and (min-width:1200px){
-    .signup-modal{
-        justify-content: space-between;
+    .signin-modal{
+        justify-content: center;
     }
-    .tempdiv-signup{
-        min-height: 78vh;
+    .signinform{
+        min-width: 25vw;
     }
 }
 @media only screen and (max-width:1200px){
-    .signup-modal{
+    .signin-modal{
         justify-content: center;
     }
-    .signupform{
-        border:5px solid rgb(204, 204, 204);
-        min-width: 40vw;
+    .signinform{
+        
+        min-width: 35vw;
     }
 }
 @media only screen and (max-width:900px){
-    .signupform{
-        min-width:50vw;
+    .signinform{
+        min-width:60vw;
     }
-    .signup-modal{
+    .signin-modal{
         justify-content: center;
     }
     .image{
@@ -81,15 +68,12 @@
     }
 }
 @media only screen and (max-width:600px){
-    .signupform{
-        min-width:80vw;
+    .signinform{
+        min-width:60vw;
     }
 }
 @media only screen and (max-width:500px){
-    .signupform{
+    .signinform{
         min-width:90vw;
-    }
-    .tempdiv-signup{
-        height:65vh;
     }
 }
