@@ -30,7 +30,7 @@ export default function Searcher() {
       const loc = search.location;
       const Name = search.name;
       // console.log(loc,Name)
-      setSearchResult(searchResult.filter(({location,name})=>{
+      setSearchResult(preview.filter(({location,name})=>{
         return(location.toLowerCase().includes(loc.toLowerCase()) && name.toLowerCase().includes(Name.toLowerCase()));
       }))
       event.preventDefault();
