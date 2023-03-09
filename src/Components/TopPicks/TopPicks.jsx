@@ -7,7 +7,7 @@ const TopPicks = (props) => {
     <div className="main-container">
       <div className="image-container">
         <div className="image">
-          <img src={top}></img>
+          <img alt='' src={top}></img>
         </div>
       </div>
       <h3>{props.title}</h3>
