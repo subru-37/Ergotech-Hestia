@@ -143,7 +143,7 @@ export default function SigninModal() {
                 }}
                 variant='outlined'
                 label="Password" />
-                <button name='signedin' className='Button'><p style={{fontFamily:'Inter'}}>Sign in!</p></button>
+                <button type='submit' name='signedin' className='Button'><p style={{fontFamily:'Inter'}}>Sign in!</p></button>
                 </form>
                 </div>
             </div>

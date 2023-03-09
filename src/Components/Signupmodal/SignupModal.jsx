@@ -4,7 +4,6 @@ import Modal from 'react-modal';
 import './SignupModal.css';
 import City from '../../Assets/City.png';
 import TextField from '@mui/material/TextField';
-import CloseIcon from '@mui/icons-material/Close';
 export default function SignupModal() {
     function handleSubmit(event){
         setAuth({
@@ -252,7 +251,7 @@ export default function SignupModal() {
                 variant='outlined'
                 label="Confirm Password" />
                 <button name='signedin' className='Button'><p style={{fontFamily:'Inter',}}>Sign up!</p></button>
-                <button style={{border:'none',background:'transparent',cursor:'pointer',margin:'10px 0'}}><p style={{fontFamily:'Inter'}}>Already have an account? Log in</p></button>
+                <button type='submit' style={{border:'none',background:'transparent',cursor:'pointer',margin:'10px 0'}}><p style={{fontFamily:'Inter'}}>Already have an account? Log in</p></button>
                 </form>
                 </div>
             </div>

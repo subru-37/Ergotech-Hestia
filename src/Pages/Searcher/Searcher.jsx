@@ -12,8 +12,13 @@ import CloseIcon from '@mui/icons-material/Close';
 import { preview } from '../../Assets/data';
 const checklist = ['wifi','ac','food','kitchen','pets','abathroom','sdeposit','curfew','hotwater','balcony','furnished','wheelchair']
 export default function Searcher() {
-    const {search,setSearch,filters,setFilters,width1} = useContext(ThemeContext);
+    const {search,setSearch,filters,setFilters,width1,searchResult,setSearchResult} = useContext(ThemeContext);
     const [drawer, setDrawer] = React.useState(false);
+    React.useEffect(()=>{
+        if (search.location === '' && search.name === ''){
+          return(setSearchResult(preview));
+      }  
+    },[search.location,search.name])
     const toggleDrawer = (open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
           return;
@@ -22,7 +27,14 @@ export default function Searcher() {
       };
     
     function handleSubmit(event){
-        event.preventDefault();
+      const loc = search.location;
+      const Name = search.name;
+      // console.log(loc,Name)
+      setSearchResult(searchResult.filter(({location,name})=>{
+        return(location.toLowerCase().includes(loc.toLowerCase()) && name.toLowerCase().includes(Name.toLowerCase()));
+      }))
+      event.preventDefault();
+
     }
     function handleCheck(event){
         const {name,checked} = event.target;
@@ -127,7 +139,7 @@ export default function Searcher() {
                 }}
                 variant='outlined'
                 label="Location" />
-                <button className='search_button'><h3 style={{color:'white',fontWeight:'400'}}>Search</h3></button>
+                <button type='submit' className='search_button'><h3 style={{color:'white',fontWeight:'400'}}>Search</h3></button>
             </form>
         </div>
         <div className='search_content' style={{display:'flex',alignItems:'center',justifyContent:'space-between',width:'95%',flexDirection:'row'}}>
@@ -212,7 +224,7 @@ export default function Searcher() {
               
               <div style={{display:'flex',alignItems:'center',flexDirection:'column',justifyContent:'space-around'}}>
               <h2>Showing Results For ....</h2>
-              {preview.map(({id,name,mw,description})=>{
+              {searchResult.map(({id,name,mw,description})=>{
                 return(
                   <SearchCard 
                     key={id}
