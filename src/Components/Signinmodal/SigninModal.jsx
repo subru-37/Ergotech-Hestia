@@ -29,7 +29,7 @@ export default function SigninModal() {
         );
       }
     // let subtitle;
-  const {signin,setSignin,auth,setAuth,width1} = useContext(ThemeContext);
+  const {signin,setSignin,Auth,setAuth,width1} = useContext(ThemeContext);
   const customStyles = {
     content: {
       top: width1>900? '54%':'52%',
@@ -61,7 +61,7 @@ export default function SigninModal() {
         closeTimeoutMS={100}
         shouldFocusAfterRender={true}
         shouldCloseOnOverlayClick={true}
-        isOpen={signin && (!auth.signedin)}
+        isOpen={signin && (!Auth.signedin)}
         // onAfterOpen={afterOpenModal}
         onRequestClose={()=>(setSignin(false))}
         style={customStyles}
@@ -77,7 +77,7 @@ export default function SigninModal() {
                 name='email'
                 required
                 autoComplete='off'
-                value={auth.email}
+                value={Auth.email}
                 type="email"
                 onChange={handleChange} 
                 sx={{
@@ -112,7 +112,7 @@ export default function SigninModal() {
                 name='pass'
                 required
                 autoComplete='off'
-                value={auth.pass}
+                value={Auth.pass}
                 type='password'
                 onChange={handleChange} 
                 sx={{

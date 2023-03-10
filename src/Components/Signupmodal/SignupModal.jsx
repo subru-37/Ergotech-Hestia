@@ -29,7 +29,7 @@ export default function SignupModal() {
         );
       }
     // let subtitle;
-  const {signup,setSignup,auth,setAuth,width1} = useContext(ThemeContext);
+  const {signup,setSignup,Auth,setAuth,width1} = useContext(ThemeContext);
   const customStyles = {
     content: {
       top: width1>900? '54%':'52%',
@@ -61,7 +61,7 @@ export default function SignupModal() {
         closeTimeoutMS={100}
         shouldFocusAfterRender={true}
         shouldCloseOnOverlayClick={true}
-        isOpen={signup && (!auth.signedin)}
+        isOpen={signup && (!Auth.signedin)}
         // onAfterOpen={afterOpenModal}
         onRequestClose={()=>(setSignup(false))}
         style={customStyles}
@@ -81,7 +81,7 @@ export default function SignupModal() {
                 name='name'
                 required
                 autoComplete='off'
-                value={auth.name}
+                value={Auth.name}
                 onChange={handleChange} 
                 sx={{
                     width: '85%',
@@ -115,7 +115,7 @@ export default function SignupModal() {
                 name='email'
                 required
                 autoComplete='off'
-                value={auth.email}
+                value={Auth.email}
                 type="email"
                 onChange={handleChange} 
                 sx={{
@@ -150,7 +150,7 @@ export default function SignupModal() {
                 name='acctype'
                 required
                 autoComplete='off'
-                value={auth.acctype}
+                value={Auth.acctype}
                 onChange={handleChange} 
                 sx={{
                     width: '85%',
@@ -184,7 +184,7 @@ export default function SignupModal() {
                 name='pass'
                 required
                 autoComplete='off'
-                value={auth.pass}
+                value={Auth.pass}
                 type='password'
                 onChange={handleChange} 
                 sx={{
@@ -219,7 +219,7 @@ export default function SignupModal() {
                 name='confirmpass'
                 required
                 autoComplete='off'
-                value={auth.confirmpass}
+                value={Auth.confirmpass}
                 type='password'
                 onChange={handleChange} 
                 sx={{

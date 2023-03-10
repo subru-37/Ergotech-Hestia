@@ -5,7 +5,7 @@ import SegmentIcon from '@mui/icons-material/Segment';
 import {Drawer} from '@mui/material';
 import './Navbar.css'
 export default function Navbar() {
-  const {signin,setSignin,signup,setSignup,auth,setAuth,width1} = useContext(ThemeContext);
+  const {signin,setSignin,signup,setSignup,Auth,setAuth,width1} = useContext(ThemeContext);
   const [scroll, setScroll] = useState(false);
   const [scrollp, setScrollP] = useState(window.scrollY);
   const [drawer, setDrawer] = React.useState(false);
@@ -50,7 +50,7 @@ export default function Navbar() {
         </div>
         <div className='buttons'>
           {
-            auth.signedin ? <button style={{display:width1>900?'block':'none'}} className='logout' onClick={()=>(setAuth({
+            Auth.signedin ? <button style={{display:width1>900?'block':'none'}} className='logout' onClick={()=>(setAuth({
     name:'',
     email:'',
     acctype:'',
@@ -84,7 +84,7 @@ export default function Navbar() {
               <Link onClick={toggleDrawer(false)} to='/Searcher' className='navitem'>Search</Link>
               <Link onClick={toggleDrawer(false)} to='/' className='navitem'>About Us</Link>
               {
-            auth.signedin ? <button className='logout' onClick={()=>{setAuth({
+            Auth.signedin ? <button className='logout' onClick={()=>{setAuth({
     name:'',
     email:'',
     acctype:'',

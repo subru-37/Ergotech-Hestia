@@ -54,27 +54,6 @@ export default function Searcher() {
       }
     }
     function handleSubmit(event){
-      // const MW = filters.mw;
-      // const WIFI = filters.wifi;
-      // const SliderValue = filters.sliderValue;
-      // const AC = filters.ac;
-      // const PETS = filters.pets;
-      // const bathroom = filters.abathroom;
-      // const deposit = filters.sdeposit;
-      // const CURFEW = filters.curefew;
-      // const hotw = filters.hotwater;
-      // const balc = filters.balcony;
-      // const furn = filters.furnished;
-      // const FOOD = filters.food;
-      // const cooking = filters.kitchen;
-      // const wheel = filters.wheelchair;
-      // const smoke = filters.smoking;
-      // const drink = filters.drinking;
-      // const proff = filters.proff;
-      // const studnt = filters.studnt;
-      // const list = Filters(filters);
-      // console.log(list)
-      // console.log(loc,Name)
       const loc = search.location;
       const Name = search.name;
       setSearchResult(preview.filter(({location,name})=>{
