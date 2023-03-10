@@ -18,6 +18,9 @@
     "react-slideshow-image": "^4.2.1",
     "web-vitals": "^2.1.4"
   },
+  "resolutions": {
+    "react": "17.0.2"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
