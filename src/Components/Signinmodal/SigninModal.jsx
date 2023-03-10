@@ -1,11 +1,40 @@
 import React from 'react'
-import {useContext} from 'react';
+import {useState, useContext} from 'react';
 import { ThemeContext } from '../../App';
 import Modal from 'react-modal';
 import TextField from '@mui/material/TextField';
 import './SigninModal.css'
+import { 
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+} from 'firebase/auth';
 export default function SigninModal() {
-    function handleSubmit(event){
+  const [loginEmail,setLoginEmail] = useState('')
+  const [loginPassword,setLoginPassword] = useState('')
+  const [user, setUser] = useState({});
+  
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
+  const login = async () => {
+    try {
+      const user = await signInWithEmailAndPassword(
+        auth,
+        loginEmail,
+        loginPassword
+      );
+      console.log(user);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  const logout = async () => {
+    await signOut(auth);
+  };
+
+   /* function handleSubmit(event){
         setAuth({
             name:'',
             email:'',
@@ -16,7 +45,7 @@ export default function SigninModal() {
           })
         setSignin(false)
         event.preventDefault();
-    }
+    } 
     function handleChange(event) {
         const { name, value } = event.target;
         // console.log(name,value);
@@ -27,9 +56,9 @@ export default function SigninModal() {
           };
         }
         );
-      }
+      }*/
     // let subtitle;
-  const {signin,setSignin,auth,setAuth,width1} = useContext(ThemeContext);
+  const {width1,auth,setAuth, signin, setSignin} = useContext(ThemeContext);
   const customStyles = {
     content: {
       top: width1>900? '54%':'52%',
@@ -72,14 +101,14 @@ export default function SigninModal() {
             <div className='signinform'>
                 <div className='tempdiv-signin'>
                   <h2 style={{margin:'10px 0'}}>Sign in</h2>
-                <form className='formbox' onSubmit={handleSubmit} method='post'>
+                <form className='formbox' onSubmit={login} method='post'>
                 <TextField 
                 name='email'
                 required
                 autoComplete='off'
-                value={auth.email}
-                type="email"
-                onChange={handleChange} 
+                type="email"onChange={(event) => {
+                  setLoginEmail(event.target.value);
+                }}
                 sx={{
                     width: '85%',
                     margin: '0 0 10px 0',
@@ -112,9 +141,9 @@ export default function SigninModal() {
                 name='pass'
                 required
                 autoComplete='off'
-                value={auth.pass}
-                type='password'
-                onChange={handleChange} 
+                type='password' onChange={(event) => {
+                  setLoginPassword(event.target.value);
+                }}
                 sx={{
                     width: '85%',
                     margin: '0 0 10px 0',
@@ -143,8 +172,11 @@ export default function SigninModal() {
                 }}
                 variant='outlined'
                 label="Password" />
-                <button name='signedin' className='Button'><p style={{fontFamily:'Inter'}}>Sign in!</p></button>
+                <button name='signedin' className='Button'><p style={{fontFamily:'Inter'}} onClick = {login}>Sign in!</p></button>
                 </form>
+                <h4> User Logged In: </h4>
+                  {user.email} {/* {user?.email} aanu sherikkum */}
+                    <button onClick={logout}> Sign Out </button>
                 </div>
             </div>
         </div>

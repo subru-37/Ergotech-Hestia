@@ -1,12 +1,79 @@
-import React,{useContext} from 'react';
+import React,{useContext, useState} from 'react';
 import { ThemeContext } from '../../App';
 import Modal from 'react-modal';
 import './SignupModal.css';
+import { 
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+} from 'firebase/auth';
 import City from '../../Assets/City.png';
 import TextField from '@mui/material/TextField';
-import CloseIcon from '@mui/icons-material/Close';
+//import CloseIcon from '@mui/icons-material/Close';
+//import { useNavigate } from "react-router-dom";
+import { auth } from '../../firebase'
+
+
 export default function SignupModal() {
-    function handleSubmit(event){
+  
+  const [registerEmail,setRegisterEmail] = useState('')
+  const [registerPassword,setRegisterPassword] = useState('')
+  /*const [loginEmail,setLoginEmail] = useState('')
+  const [loginPassword,setLoginPassword] = useState('')
+  const navigate = useNavigate();*/
+  const [user, setUser] = useState({});
+
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
+
+  const register = async () => {
+    try {
+      const user = await createUserWithEmailAndPassword(
+        auth,
+        registerEmail,
+        registerPassword
+      );
+      console.log(user);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+ 
+
+  /*async function handleSubmit(e) {
+    e.preventDefault()
+
+    if (passwordRef.current.value !== passwordConfirmedRef.current.value) {
+      return setError("Passwords do not match")
+    }
+
+    try {
+      setError("")
+      setLoading(true)
+      await signup(emailRef.current.value, passwordRef.current.value)
+      navigate('/searcher');
+    } catch {
+      setError("Failed to create an account")
+    }
+
+    setLoading(false)
+  }*/
+  /*const handleLogin = (e)=>{
+    e.preventDefault()
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+      navigate('/searcher')
+     const userEmail = email
+      
+    })
+    .catch((error) => {
+      setError(true)
+    });
+  }
+*/
+    /* handleSubmit(event){
         setAuth({
             name:'',
             email:'',
@@ -17,7 +84,7 @@ export default function SignupModal() {
           })
         setSignup(false)
         event.preventDefault();
-    }
+    } 
     function handleChange(event) {
         const { name, value } = event.target;
         // console.log(name,value);
@@ -28,9 +95,9 @@ export default function SignupModal() {
           };
         }
         );
-      }
+      }*/
     // let subtitle;
-  const {signup,setSignup,auth,setAuth,width1} = useContext(ThemeContext);
+  const {width1} = useContext(ThemeContext);
   const customStyles = {
     content: {
       top: width1>900? '54%':'52%',
@@ -62,9 +129,9 @@ export default function SignupModal() {
         closeTimeoutMS={100}
         shouldFocusAfterRender={true}
         shouldCloseOnOverlayClick={true}
-        isOpen={signup && (!auth.signedin)}
+        isOpen={(!auth.signedin)}
         // onAfterOpen={afterOpenModal}
-        onRequestClose={()=>(setSignup(false))}
+       // onRequestClose={()=>(setSignup(false))}
         style={customStyles}
         contentLabel="Example Modal"
       >
@@ -75,15 +142,16 @@ export default function SignupModal() {
             </div>
             <div className='signupform'>
                 <div className='tempdiv-signup'>
-                  <h2 style={{margin:'10px 0'}}>Sign up</h2>
+                  <h2 style={{margin:'10px 0'}}>Sign up</h2> 
+
                 <p style={{marginBottom:'10px',fontSize:'15px'}}>Let's get started with Hestia!</p>
-                <form className='formbox' onSubmit={handleSubmit} method='post'>
+                <form className='formbox' onSubmit={register} method='post'>
                 <TextField 
                 name='name'
                 required
                 autoComplete='off'
                 value={auth.name}
-                onChange={handleChange} 
+                /*onChange={handleChange} */
                 sx={{
                     width: '85%',
                     margin: '0 0 10px 0',
@@ -116,9 +184,11 @@ export default function SignupModal() {
                 name='email'
                 required
                 autoComplete='off'
-                value={auth.email}
                 type="email"
-                onChange={handleChange} 
+                
+                onChange={(event)=> {
+                  setRegisterEmail(event.target.value);
+                }} 
                 sx={{
                     width: '85%',
                     margin: '0 0 10px 0',
@@ -152,7 +222,8 @@ export default function SignupModal() {
                 required
                 autoComplete='off'
                 value={auth.acctype}
-                onChange={handleChange} 
+              
+                /*onChange={handleChange} */
                 sx={{
                     width: '85%',
                     margin: '0 0 10px 0',
@@ -185,9 +256,10 @@ export default function SignupModal() {
                 name='pass'
                 required
                 autoComplete='off'
-                value={auth.pass}
                 type='password'
-                onChange={handleChange} 
+                onChange={(event)=> {
+                  setRegisterPassword(event.target.value);
+                }} 
                 sx={{
                     width: '85%',
                     margin: '0 0 10px 0',
@@ -220,9 +292,9 @@ export default function SignupModal() {
                 name='confirmpass'
                 required
                 autoComplete='off'
-                value={auth.confirmpass}
                 type='password'
-                onChange={handleChange} 
+             
+                /*onChange={handleChange} */
                 sx={{
                     width: '85%',
                     margin: '0 0 10px 0',
@@ -251,9 +323,10 @@ export default function SignupModal() {
                 }}
                 variant='outlined'
                 label="Confirm Password" />
-                <button name='signedin' className='Button'><p style={{fontFamily:'Inter',}}>Sign up!</p></button>
+                <button name='signedin' className='Button' onClick = {register}><p style={{fontFamily:'Inter',}}>Sign up!</p></button>
                 <button style={{border:'none',background:'transparent',cursor:'pointer',margin:'10px 0'}}><p style={{fontFamily:'Inter'}}>Already have an account? Log in</p></button>
                 </form>
+                <h3>Logout</h3>
                 </div>
             </div>
         </div>
