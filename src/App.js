@@ -11,8 +11,8 @@ function App() {
   const [signin,setSignin] = useState(false);
   const [signup,setSignup] = useState(false);
   const [width1,setWidth] = useState(window.innerWidth);
-
-  const [Auth,setAuth] = useState({
+  const [user,setUser] = useState({});
+  const [auths,setAuth] = useState({
     name:'',
     email:'',
     acctype:'',
@@ -52,7 +52,7 @@ function App() {
   },[width1])
   return (
     <div className="App">
-      <ThemeContext.Provider value={{signup,signin,setSignin,setSignup,Auth,setAuth,search,setSearch,filters,setFilters,width1,searchResult,setSearchResult}}>
+      <ThemeContext.Provider value={{user,setUser,signup,signin,setSignin,setSignup,auths,setAuth,search,setSearch,filters,setFilters,width1,searchResult,setSearchResult}}>
         <Navbar/>
         <SignupModal/>
         <SigninModal/>

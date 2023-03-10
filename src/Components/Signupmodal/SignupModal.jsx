@@ -4,19 +4,39 @@ import Modal from 'react-modal';
 import './SignupModal.css';
 import City from '../../Assets/City.png';
 import TextField from '@mui/material/TextField';
+import { 
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+} from 'firebase/auth';
+import { auth } from '../../firebase'
+
 export default function SignupModal() {
-    function handleSubmit(event){
-        setAuth({
-            name:'',
-            email:'',
-            acctype:'',
-            pass:'',
-            confirmpass:'',
-            signedin: true
-          })
-        setSignup(false)
-        event.preventDefault();
+  
+  const {user,setUser,signup,setSignup,auths,setAuth,width1} = useContext(ThemeContext);
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  }); 
+  const handleSubmit = async (event) =>{ 
+    event.preventDefault();
+      try { 
+        const user = await createUserWithEmailAndPassword(
+          auth,
+          auths.email,
+          auths.pass
+        );
+      console.log(user);
+      setAuth((preValue)=>{
+        return({
+          ...preValue,
+          signedin:true
+        });
+      }) 
+      setSignup(false)
+     } catch(error) {
+      console.log(error.message);
     }
+    };
+   
     function handleChange(event) {
         const { name, value } = event.target;
         // console.log(name,value);
@@ -29,7 +49,6 @@ export default function SignupModal() {
         );
       }
     // let subtitle;
-  const {signup,setSignup,Auth,setAuth,width1} = useContext(ThemeContext);
   const customStyles = {
     content: {
       top: width1>900? '54%':'52%',
@@ -56,12 +75,13 @@ export default function SignupModal() {
 //     subtitle.style.color = '#f00';
 //   }
   return (
+
     <div>
     <Modal
         closeTimeoutMS={100}
         shouldFocusAfterRender={true}
         shouldCloseOnOverlayClick={true}
-        isOpen={signup && (!Auth.signedin)}
+        isOpen={signup && (!auths.signedin)}
         // onAfterOpen={afterOpenModal}
         onRequestClose={()=>(setSignup(false))}
         style={customStyles}
@@ -81,7 +101,7 @@ export default function SignupModal() {
                 name='name'
                 required
                 autoComplete='off'
-                value={Auth.name}
+                value={auths.name}
                 onChange={handleChange} 
                 sx={{
                     width: '85%',
@@ -115,7 +135,7 @@ export default function SignupModal() {
                 name='email'
                 required
                 autoComplete='off'
-                value={Auth.email}
+                value={auths.email}
                 type="email"
                 onChange={handleChange} 
                 sx={{
@@ -150,7 +170,7 @@ export default function SignupModal() {
                 name='acctype'
                 required
                 autoComplete='off'
-                value={Auth.acctype}
+                value={auths.acctype}
                 onChange={handleChange} 
                 sx={{
                     width: '85%',
@@ -184,7 +204,7 @@ export default function SignupModal() {
                 name='pass'
                 required
                 autoComplete='off'
-                value={Auth.pass}
+                value={auths.pass}
                 type='password'
                 onChange={handleChange} 
                 sx={{
@@ -219,7 +239,7 @@ export default function SignupModal() {
                 name='confirmpass'
                 required
                 autoComplete='off'
-                value={Auth.confirmpass}
+                value={auths.confirmpass}
                 type='password'
                 onChange={handleChange} 
                 sx={{

@@ -4,8 +4,21 @@ import { Link } from 'react-router-dom';
 import SegmentIcon from '@mui/icons-material/Segment';
 import {Drawer} from '@mui/material';
 import './Navbar.css'
+import {  signOut } from 'firebase/auth';
+import { auth } from '../../firebase'
 export default function Navbar() {
-  const {signin,setSignin,signup,setSignup,Auth,setAuth,width1} = useContext(ThemeContext);
+  const logout = async () => {
+    await signOut(auth);
+    setAuth({
+      name:'',
+      email:'',
+      acctype:'',
+      pass:'',
+      confirmpass:'',
+      signedin: false
+    })
+  };
+  const {signin,setSignin,signup,setSignup,auths,setAuth,width1} = useContext(ThemeContext);
   const [scroll, setScroll] = useState(false);
   const [scrollp, setScrollP] = useState(window.scrollY);
   const [drawer, setDrawer] = React.useState(false);
@@ -50,14 +63,7 @@ export default function Navbar() {
         </div>
         <div className='buttons'>
           {
-            Auth.signedin ? <button style={{display:width1>900?'block':'none'}} className='logout' onClick={()=>(setAuth({
-    name:'',
-    email:'',
-    acctype:'',
-    pass:'',
-    confirmpass:'',
-    signedin: false
-  }))}><h3 style={{fontWeight:'400',cursor:'pointer'}}>Log out</h3></button> 
+            auths.signedin ? <button style={{display:width1>900?'block':'none'}} className='logout' onClick={()=>(logout)}><h3 style={{fontWeight:'400',cursor:'pointer'}}>Log out</h3></button> 
                             :
     <div style={{display:'flex',alignItems:'center',flexDirection:'row'}}>
       <button style={{display: width1>900 ? 'flex' : 'none',alignItems:'center',justifyContent:'center'}} onClick={()=>(setSignup(!signup))} className='signup'>Sign up</button>
@@ -84,17 +90,8 @@ export default function Navbar() {
               <Link onClick={toggleDrawer(false)} to='/Searcher' className='navitem'>Search</Link>
               <Link onClick={toggleDrawer(false)} to='/' className='navitem'>About Us</Link>
               {
-            Auth.signedin ? <button className='logout' onClick={()=>{setAuth({
-    name:'',
-    email:'',
-    acctype:'',
-    pass:'',
-    confirmpass:'',
-    signedin: false
-  })
-  setDrawer(false)
-  }}><h3 style={{fontWeight:'400',cursor:'pointer'}}>Log out</h3></button> 
-                            :
+            auths.signedin ? <button className='logout' onClick={()=>{
+              return (logout, setDrawer(false));}}></button>:
                             <div>
                             <button style={{display: 'flex',alignItems:'center',justifyContent:'center'}} onClick={()=>{
                                                                                                                 setDrawer(false)

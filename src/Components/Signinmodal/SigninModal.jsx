@@ -4,19 +4,39 @@ import { ThemeContext } from '../../App';
 import Modal from 'react-modal';
 import TextField from '@mui/material/TextField';
 import './SigninModal.css'
+import { 
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+} from 'firebase/auth';
+import { auth } from '../../firebase'
+
 export default function SigninModal() {
-    function handleSubmit(event){
-        setAuth({
-            name:'',
-            email:'',
-            acctype:'',
-            pass:'',
-            confirmpass:'',
-            signedin: true
-          })
+
+  const {user,setUser,signin,setSignin,auths,setAuth,width1} = useContext(ThemeContext);
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  }); 
+    const handleSubmit = async (event) => {
+      
+      event.preventDefault();
+      try {  
+        const user = await signInWithEmailAndPassword(
+          auth,
+          auths.email,
+          auths.pass
+        );
+        console.log(user);
+        setAuth((preValue)=>{
+          return({
+            ...preValue,
+            signedin:true
+          });
+        }) 
         setSignin(false)
-        event.preventDefault();
-    }
+        } catch(error) {
+          console.log(error.message);
+        } 
+    };
     function handleChange(event) {
         const { name, value } = event.target;
         // console.log(name,value);
@@ -29,7 +49,6 @@ export default function SigninModal() {
         );
       }
     // let subtitle;
-  const {signin,setSignin,Auth,setAuth,width1} = useContext(ThemeContext);
   const customStyles = {
     content: {
       top: width1>900? '54%':'52%',
@@ -61,7 +80,7 @@ export default function SigninModal() {
         closeTimeoutMS={100}
         shouldFocusAfterRender={true}
         shouldCloseOnOverlayClick={true}
-        isOpen={signin && (!Auth.signedin)}
+        isOpen={signin && (!auths.signedin)}
         // onAfterOpen={afterOpenModal}
         onRequestClose={()=>(setSignin(false))}
         style={customStyles}
@@ -77,7 +96,7 @@ export default function SigninModal() {
                 name='email'
                 required
                 autoComplete='off'
-                value={Auth.email}
+                value={auths.email}
                 type="email"
                 onChange={handleChange} 
                 sx={{
@@ -112,7 +131,7 @@ export default function SigninModal() {
                 name='pass'
                 required
                 autoComplete='off'
-                value={Auth.pass}
+                value={auths.pass}
                 type='password'
                 onChange={handleChange} 
                 sx={{
