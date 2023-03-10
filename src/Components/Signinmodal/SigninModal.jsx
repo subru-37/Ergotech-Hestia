@@ -172,7 +172,7 @@ export default function SigninModal() {
                 }}
                 variant='outlined'
                 label="Password" />
-                <button name='signedin' className='Button'><p style={{fontFamily:'Inter'}} onClick = {login}>Sign in!</p></button>
+                <button type='submit' name='signedin' className='Button'><p style={{fontFamily:'Inter'}} onClick = {login}>Sign in!</p></button>
                 </form>
                 <h4> User Logged In: </h4>
                   {user.email} {/* {user?.email} aanu sherikkum */}

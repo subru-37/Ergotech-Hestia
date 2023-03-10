@@ -324,7 +324,7 @@ export default function SignupModal() {
                 variant='outlined'
                 label="Confirm Password" />
                 <button name='signedin' className='Button' onClick = {register}><p style={{fontFamily:'Inter',}}>Sign up!</p></button>
-                <button style={{border:'none',background:'transparent',cursor:'pointer',margin:'10px 0'}}><p style={{fontFamily:'Inter'}}>Already have an account? Log in</p></button>
+                <button type='submit' style={{border:'none',background:'transparent',cursor:'pointer',margin:'10px 0'}}><p style={{fontFamily:'Inter'}}>Already have an account? Log in</p></button>
                 </form>
                 <h3>Logout</h3>
                 </div>

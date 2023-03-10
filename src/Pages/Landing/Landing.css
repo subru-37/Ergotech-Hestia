@@ -1,0 +1,49 @@
+.landing-page {
+    margin-left: 50px;
+    margin-right: 50px;
+    background-color: white;
+  }
+  
+  .landing-one {
+    display: flex;
+  }
+  
+  .landing-image {
+    width: 500px;
+    height: 500px;
+  }
+  
+  .top-picks-cards {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .col {
+    flex-direction: column;
+  }
+  
+  .row {
+    display: flex;
+  }
+  
+  .features-grid-container {
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns with equal width */
+    gap: 20px;
+  }
+  
+  .footer {
+    height: 20vh;
+    background: linear-gradient(
+      267.58deg,
+      rgba(101, 99, 255, 0.68) 0.68%,
+      rgba(101, 130, 234, 0.41) 23.39%,
+      rgba(101, 99, 255, 0.4) 71.31%,
+      rgba(101, 99, 255, 0.76) 98.16%
+    );
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+  }
+  
