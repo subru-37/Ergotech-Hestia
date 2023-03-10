@@ -166,7 +166,7 @@ export default function SignupModal() {
                 }}
                 variant='outlined'
                 label="Email" />
-                <TextField 
+                {/*<TextField 
                 name='acctype'
                 required
                 autoComplete='off'
@@ -199,7 +199,7 @@ export default function SignupModal() {
                   style: { color:'black',fontFamily:"Inter"},
                 }}
                 variant='outlined'
-                label="Account Type" />
+              label="Account Type" /> */}
                 <TextField 
                 name='pass'
                 required
