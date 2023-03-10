@@ -37,6 +37,7 @@ export default function SignupModal() {
     } catch (error) {
       console.log(error.message);
     }
+    setSignup(false)
   };
  
 
@@ -84,7 +85,7 @@ export default function SignupModal() {
           })
         setSignup(false)
         event.preventDefault();
-    } 
+    } */
     function handleChange(event) {
         const { name, value } = event.target;
         // console.log(name,value);
@@ -95,9 +96,9 @@ export default function SignupModal() {
           };
         }
         );
-      }*/
+      }
     // let subtitle;
-  const {width1} = useContext(ThemeContext);
+  const {width1,Auth,setAuth,signup,setSignup} = useContext(ThemeContext);
   const customStyles = {
     content: {
       top: width1>900? '54%':'52%',
@@ -123,15 +124,16 @@ export default function SignupModal() {
 //     // references are now sync'd and can be accessed.
 //     subtitle.style.color = '#f00';
 //   }
+  console.log(signup)
   return (
     <div>
     <Modal
         closeTimeoutMS={100}
         shouldFocusAfterRender={true}
         shouldCloseOnOverlayClick={true}
-        isOpen={(!auth.signedin)}
+        isOpen={signup}
         // onAfterOpen={afterOpenModal}
-       // onRequestClose={()=>(setSignup(false))}
+        onRequestClose={()=>(setSignup(false))}
         style={customStyles}
         contentLabel="Example Modal"
       >
@@ -150,8 +152,8 @@ export default function SignupModal() {
                 name='name'
                 required
                 autoComplete='off'
-                value={auth.name}
-                /*onChange={handleChange} */
+                value={Auth.name}
+                onChange={handleChange} 
                 sx={{
                     width: '85%',
                     margin: '0 0 10px 0',
@@ -221,9 +223,9 @@ export default function SignupModal() {
                 name='acctype'
                 required
                 autoComplete='off'
-                value={auth.acctype}
+                value={Auth.acctype}
               
-                /*onChange={handleChange} */
+                onChange={handleChange} 
                 sx={{
                     width: '85%',
                     margin: '0 0 10px 0',
@@ -323,7 +325,7 @@ export default function SignupModal() {
                 }}
                 variant='outlined'
                 label="Confirm Password" />
-                <button name='signedin' className='Button' onClick = {register}><p style={{fontFamily:'Inter',}}>Sign up!</p></button>
+                <button name='signedin' className='Button' onClick = {()=>(register())}><p style={{fontFamily:'Inter',}}>Sign up!</p></button>
                 <button type='submit' style={{border:'none',background:'transparent',cursor:'pointer',margin:'10px 0'}}><p style={{fontFamily:'Inter'}}>Already have an account? Log in</p></button>
                 </form>
                 <h3>Logout</h3>

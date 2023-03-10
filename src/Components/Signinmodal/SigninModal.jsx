@@ -9,6 +9,7 @@ import {
   onAuthStateChanged,
   signOut,
 } from 'firebase/auth';
+import { auth } from '../../firebase'
 export default function SigninModal() {
   const [loginEmail,setLoginEmail] = useState('')
   const [loginPassword,setLoginPassword] = useState('')
@@ -58,7 +59,7 @@ export default function SigninModal() {
         );
       }*/
     // let subtitle;
-  const {width1,auth,setAuth, signin, setSignin} = useContext(ThemeContext);
+  const {width1,Auth,setAuth, signin, setSignin} = useContext(ThemeContext);
   const customStyles = {
     content: {
       top: width1>900? '54%':'52%',
@@ -90,7 +91,7 @@ export default function SigninModal() {
         closeTimeoutMS={100}
         shouldFocusAfterRender={true}
         shouldCloseOnOverlayClick={true}
-        isOpen={signin && (!auth.signedin)}
+        isOpen={signin && (!Auth.signedin)}
         // onAfterOpen={afterOpenModal}
         onRequestClose={()=>(setSignin(false))}
         style={customStyles}
@@ -174,8 +175,8 @@ export default function SigninModal() {
                 label="Password" />
                 <button type='submit' name='signedin' className='Button'><p style={{fontFamily:'Inter'}} onClick = {login}>Sign in!</p></button>
                 </form>
-                <h4> User Logged In: </h4>
-                  {user.email} {/* {user?.email} aanu sherikkum */}
+                {/* <h4> User Logged In: </h4>
+                  {user.email} {user?.email} aanu sherikkum */}
                     <button onClick={logout}> Sign Out </button>
                 </div>
             </div>
