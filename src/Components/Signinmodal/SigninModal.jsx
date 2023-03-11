@@ -12,11 +12,12 @@ import { auth } from '../../firebase'
 
 export default function SigninModal() {
 
-  const {setUser,signin,setSignin,auths,setAuth,width1} = useContext(ThemeContext);
-  
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
+  const {wrongpass,setWrongPass,setUser,signin,setSignin,auths,setAuth,width1} = useContext(ThemeContext);
+  React.useEffect(()=>{
+    onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    }); 
+  })
     const handleSubmit = async (event) => {
       
       event.preventDefault();
@@ -27,6 +28,7 @@ export default function SigninModal() {
           auths.pass
         );
         console.log(user);
+        setWrongPass(false)
         setAuth((preValue)=>{
           return({
             ...preValue,
@@ -36,6 +38,7 @@ export default function SigninModal() {
         setSignin(false)
         } catch(error) {
           console.log(error.message);
+          setWrongPass(true)
         } 
     };
     function handleChange(event) {
@@ -142,7 +145,7 @@ export default function SigninModal() {
                         backgroundColor:'#F8F8FF',
                         color:'black',
                       '& fieldset':{
-                        border: '1px solid #0C4271',
+                        border: wrongpass? '3px solid red': '1px solid #0C4271',
                         color:'black'
                       },
                       '&.Mui-focused fieldset': {
@@ -152,7 +155,7 @@ export default function SigninModal() {
                     },
                     '& .MuiOutlinedInput-root:hover':{
                       '& fieldset':{
-                        border: '1px solid #0C4271',
+                        border: wrongpass? '3px solid red': '1px solid #0C4271',
                         color: 'black'
                       }
                     }
@@ -163,10 +166,12 @@ export default function SigninModal() {
                 }}
                 variant='outlined'
                 label="Password" />
+                {wrongpass ? <div><p>Wrong password or Email, please try again</p></div> : null}
                 <button type='submit' name='signedin' className='Button'><p style={{fontFamily:'Inter'}}>Sign in!</p></button>
                 </form>
                 </div>
             </div>
+            <div></div>
         </div>
       </Modal>
     </div>

@@ -33,6 +33,18 @@
     cursor: pointer;
     text-decoration: none;
     color: black;
+    transition: 0.05s;
+    font-size: 1rem;
+}
+.navitem:hover{
+    font-size: 1.1rem;
+}
+.iconitem{
+    font-size: 1.7rem;
+    transition: 0.05s;
+}
+.iconitem:hover{
+    font-size: 1.8rem;
 }
 .logo{
     font-family: 'Inter', sans-serif;
@@ -45,6 +57,12 @@
     width: 100px;
     height: 40px;
     cursor: pointer;
+    transition: 0.05s;
+}
+.signup:hover,
+.signin:hover{
+    width: 115px;
+    height: 45px;
 }
 .logout{
     background: #A1B4FB;

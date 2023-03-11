@@ -21,9 +21,10 @@ function App() {
     signedin: false
   });
   const [search,setSearch] = useState({location:'',name:''})
+  const [wrongpass,setWrongPass] = useState(false)
   const [searchResult,setSearchResult] = useState([]);
   const [filters, setFilters] = useState({
-    sliderValue:[1000,2000],
+    sliderValue:[1000,1000],
     wifi:false,
     ac: false,
     food:false,
@@ -52,7 +53,7 @@ function App() {
   },[width1])
   return (
     <div className="App">
-      <ThemeContext.Provider value={{user,setUser,signup,signin,setSignin,setSignup,auths,setAuth,search,setSearch,filters,setFilters,width1,searchResult,setSearchResult}}>
+      <ThemeContext.Provider value={{user,setUser,wrongpass,setWrongPass,signup,signin,setSignin,setSignup,auths,setAuth,search,setSearch,filters,setFilters,width1,searchResult,setSearchResult}}>
         <Navbar/>
         <SignupModal/>
         <SigninModal/>

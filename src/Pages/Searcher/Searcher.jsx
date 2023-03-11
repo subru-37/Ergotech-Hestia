@@ -107,11 +107,8 @@ useEffect(
         }
       }
       // console.log(keys)
-      if (keys.length === 0){
-        setSearchResult(item)
-      }
-      else{
-          searchResult.forEach((pg,index)=>{
+      if (keys.length!==0){
+          preview.forEach((pg,index)=>{
             for (let s in keys){
               if (s && keys.find((y)=>(pg[y])) && !(details.includes(pg))){
                   details.push(pg)
@@ -120,6 +117,30 @@ useEffect(
           })
           // console.log(details)
           setSearchResult(details)
+      }else{
+        setSearchResult(preview)
+      }
+    }
+    function changeSlider(arr){
+      const valueSlider = arr.sliderValue;
+      const details = [];
+      if (arr.sliderValue === [1000,1000]){
+        setSearchResult(preview)
+        
+      }
+      else{
+        preview.forEach((pg,index)=>{
+          for(let s in arr){
+            if (s === 'sliderValue'){
+              const keySlider = pg.sliderValue;
+              if ((keySlider[0]>=valueSlider[0] && keySlider[1]<=valueSlider[1]) || (keySlider[1]<=valueSlider[1] && keySlider[1]>=valueSlider[0]) || (keySlider[0]>=valueSlider[0] && keySlider[0]<=valueSlider[1])){
+                details.push(pg)
+              }
+            }
+          }
+        })
+        setSearchResult(details)
+        
       }
     }
     function handleSubmit(event){
@@ -258,16 +279,18 @@ useEffect(
                     size='small'
                 />
                 <div><h4>{filters.sliderValue[0]}-{filters.sliderValue[1]}</h4></div>
+                <div className='submit-filters-div'><button className="filter-submit"onClick={()=>(changeSlider(filters))}>Submit</button></div>
               </div>
           </div>
           <div style={{borderBottom:'3px solid #F6F6F6',width:'110.5%',display:'flex',alignItems:'center',justifyContent:'center'}}><h2 style={{padding:'20px 0'}}>Facilities</h2></div>
           <div style={{display:'flex',alignItems:'flex-start',flexDirection:'column',width:'80%'}}>
           {checklist.map((value,index)=>{
             return(
-              <FormControlLabel key={index} control={<Checkbox 
-              name={value} 
+              <FormControlLabel key={index} sx={{'&. MuiTypography-root':{fontSize:'30px'}}}
+              control={<Checkbox 
+              name={value}
               checked={filters.value} 
-              sx={{ '& .MuiSvgIcon-root': { fontSize:22  } }} 
+              sx={{ '& .MuiSvgIcon-root': { fontSize: '25px'  } }} 
               onChange={handleCheck}></Checkbox>} label={value} />
             );
           })}
@@ -302,7 +325,8 @@ useEffect(
                               max={20000}
                               size='small'
                           />
-                          <div><h4>{filters.sliderValue[0]}-{filters.sliderValue[1]}</h4></div> 
+                          <div><h4>{filters.sliderValue[0]}-{filters.sliderValue[1]}</h4></div>
+                          <button onClick={()=>{changeSlider(filters);setDrawer(false)}}>Submit</button> 
                           </div>
                       </div>
                       <div style={{borderBottom:'3px solid #F6F6F6',width:'120%',display:'flex',alignItems:'center',justifyContent:'center'}}><h2 style={{padding:'20px 0'}}
@@ -313,7 +337,7 @@ useEffect(
                           <FormControlLabel key={index} control={<Checkbox 
                           name={value} 
                           checked={filters.value} 
-                          sx={{ '& .MuiSvgIcon-root': { fontSize:22  } }} 
+                          sx={{ '& .MuiSvgIcon-root': { fontSize:'26px'  } }} 
                           onChange={handleCheck}></Checkbox>} label={value} />
                         );
                       })}

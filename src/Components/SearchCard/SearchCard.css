@@ -18,6 +18,17 @@
 .preview-section{
     margin: 15px;
 }
+.hover-stat{
+    font-size: 0.8rem;
+    text-decoration: underline;
+    cursor:pointer;
+    transition: 0.3s;
+    color: black;
+
+}
+.hover-stat:hover{
+    color:'blue';
+}
 .preview-title{
     display: flex;
     align-items: center;
