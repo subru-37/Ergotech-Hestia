@@ -12,12 +12,14 @@ import { auth } from '../../firebase'
 
 export default function SignupModal() {
   
-  const {user,setUser,signup,setSignup,auths,setAuth,width1} = useContext(ThemeContext);
+  const {wrongpass,setWrongPass,setUser,signup,setSignup,auths,setAuth,width1} = useContext(ThemeContext);
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
   }); 
   const handleSubmit = async (event) =>{ 
     event.preventDefault();
+    if (auths.pass === auths.confirmpass){
+      setWrongPass(false)
       try { 
         const user = await createUserWithEmailAndPassword(
           auth,
@@ -34,6 +36,10 @@ export default function SignupModal() {
       setSignup(false)
      } catch(error) {
       console.log(error.message);
+    }
+    }
+    else{
+      setWrongPass(true)
     }
     };
    
@@ -270,6 +276,7 @@ export default function SignupModal() {
                 }}
                 variant='outlined'
                 label="Confirm Password" />
+                {wrongpass ? <div style={{width:'70%',color:'red',textAlign:'center'}}><p>Different password and confirmation password, please try again</p></div> : null}
                 <button name='signedin' className='Button'><p style={{fontFamily:'Inter',}}>Sign up!</p></button>
                 <button type='submit' style={{border:'none',background:'transparent',cursor:'pointer',margin:'10px 0'}}><p style={{fontFamily:'Inter'}}>Already have an account? Log in</p></button>
                 </form>

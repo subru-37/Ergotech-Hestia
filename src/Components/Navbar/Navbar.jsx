@@ -3,9 +3,11 @@ import { ThemeContext } from '../../App';
 import { Link } from 'react-router-dom';
 import SegmentIcon from '@mui/icons-material/Segment';
 import {Drawer} from '@mui/material';
+import SettingsIcon from '@mui/icons-material/Settings';
 import './Navbar.css'
 import {  signOut } from 'firebase/auth';
-import { auth } from '../../firebase'
+import { auth } from '../../firebase';
+import IMG from '../../Assets/IMG20221025172200.jpg'
 export default function Navbar() {
   const logout = async () => {
     await signOut(auth);
@@ -52,7 +54,7 @@ export default function Navbar() {
       <button style={{border:'none',padding:'0',background:'transparent', display: width1>900 ?'none':'block'}} onClick={toggleDrawer(true)}><SegmentIcon sx={{fontSize:'40px'}}/></button>
       <div className='container'>
       <div className='logo'>
-            <h2>Hestia</h2>
+            <h2 className='iconitem'>Hestia</h2>
         </div>
         <div>
           <ul className='navitems' style={{listStyle:'none',flexDirection:'row',display: width1>900 ? 'flex':'none'}}>
@@ -63,7 +65,12 @@ export default function Navbar() {
         </div>
         <div className='buttons'>
           {
-            auths.signedin ? <button style={{display:width1>900?'block':'none'}} className='logout' onClick={()=>(logout())}><h3 style={{fontWeight:'400',cursor:'pointer'}}>Log out</h3></button> 
+            (auths.signedin) ? <div style={{display:'flex',justifyContent:'center',flexDirection:'row',alignItems:'center'}}>
+            <button style={{display:width1>900?'block':'none'}} className='logout' onClick={()=>(logout())}><h3 style={{fontWeight:'400',cursor:'pointer'}}>Log out</h3></button> 
+            <img src={IMG} alt='' style={{width:'40px',height:'40px',borderRadius:'80%',margin:'0 10px 0 30px',cursor:'pointer'}} onClick={()=>(logout())}></img>
+            <div style={{display:'flex',alignItems:'center',justifyContent:'center',margin:'0'}}><SettingsIcon sx={{fontSize:'30px'}}/></div>
+            
+            </div>
                             :
     <div style={{display:'flex',alignItems:'center',flexDirection:'row'}}>
       <button style={{display: width1>900 ? 'flex' : 'none',alignItems:'center',justifyContent:'center'}} onClick={()=>(setSignup(!signup))} className='signup'>Sign up</button>
