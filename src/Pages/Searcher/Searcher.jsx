@@ -20,9 +20,9 @@ export default function Searcher() {
           return(setSearchResult(preview));
       }  
     },[search.location,search.name])
-    // React.useEffect(()=>{
-    //   Filters(filters)
-    // },[filters])
+    React.useEffect(()=>{
+      Filters(filters)
+    },[filters])
     const toggleDrawer = (open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
           return;
@@ -38,11 +38,8 @@ export default function Searcher() {
         }
       }
       // console.log(keys)
-      if (keys.length === 0){
-        setSearchResult(preview)
-      }
-      else{
-          searchResult.forEach((pg,index)=>{
+      if (keys.length!==0){
+          preview.forEach((pg,index)=>{
             for (let s in keys){
               if (s && keys.find((y)=>(pg[y])) && !(details.includes(pg))){
                   details.push(pg)
@@ -51,6 +48,8 @@ export default function Searcher() {
           })
           // console.log(details)
           setSearchResult(details)
+      }else{
+        setSearchResult(preview)
       }
     }
     function changeSlider(arr){
