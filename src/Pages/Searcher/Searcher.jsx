@@ -210,7 +210,7 @@ export default function Searcher() {
                     size='small'
                 />
                 <div><h4>{filters.sliderValue[0]}-{filters.sliderValue[1]}</h4></div>
-                <button onClick={()=>(changeSlider(filters))}>Submit</button>
+                <div className='submit-filters-div'><button className="filter-submit"onClick={()=>(changeSlider(filters))}>Submit</button></div>
               </div>
           </div>
           <div style={{borderBottom:'3px solid #F6F6F6',width:'110.5%',display:'flex',alignItems:'center',justifyContent:'center'}}><h2 style={{padding:'20px 0'}}>Facilities</h2></div>
