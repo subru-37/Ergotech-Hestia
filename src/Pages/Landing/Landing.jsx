@@ -7,8 +7,8 @@ import Footer from '../../Components/Footer/Footer';
 import "./Landing.css";
 import Apartment from "../../Assets/apartment.svg";
 import About from "../../Assets/about-team-image.svg";
-import TopPicks from "../../Components/TopPicks/TopPicks";
-import Features from "../../Components/Features/Features";
+// import TopPicks from "../../Components/TopPicks/TopPicks";
+// import Features from "../../Components/Features/Features";
 import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from "react-router-dom";
 
@@ -48,7 +48,7 @@ export default function Landing() {
     <div className="sett landing-page" style={{ minHeight: "200vh" }}>
       <div className="landing-one">
         <div className="landing-content">
-          <div style={{minHeight:'60%',display:'flex',alignItems:'flex-start',flexDirection:'column',justifyContent:'space-around',width:'75%'}}>
+          <div style={{minHeight:'60vh',display:'flex',alignItems:'flex-start',flexDirection:'column',justifyContent:'space-around',width:'75%'}}>
           <h1>Welcome to Hestia!</h1>
           <p style={{width:'70%'}}>
             Worried that you can’t find an apartment? Find vacant apartments/
@@ -126,6 +126,10 @@ export default function Landing() {
                 label="Location" />
                 <button type='submit' className='search_button'><SearchIcon sx={{fontSize:'30px',color:'white'}}/></button>
             </form>
+            <div>
+              <h4 style={{margin:'20px 0',fontStyle:'italic'}}>Looking to give out To-let?</h4>
+              <button className='contact-us' style={{fontStyle:'italic'}}>Contact us {'>'}{'>'}</button>
+            </div>
           </div>
         </div>
         <div className="landing-image">
@@ -157,10 +161,14 @@ export default function Landing() {
         <Features icon="icon" feat="text"/>
       </div> */}
 
-      <h1>About Us</h1>
-      <div className='about-content'>
-        <div className='about'><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div>
-        <div className='about-image'><img src={About}></img></div>
+      <div id='about-us' className='about-content'>
+       <div><img alt=''  className='about-image' src={About}></img></div>
+        <div style={{width:'50vw'}}>
+          <h1>About Us</h1>
+          <div className='about'>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+        </div>
       </div>
       <Footer />
     </div>

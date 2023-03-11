@@ -7,11 +7,24 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  min-height: 90vh;
 }
   .landing-one {
     display: flex;
+    min-height: 100vh;
+    justify-content: space-between;
+    align-items: center;
   }
-  
+  .contact-us{
+    background: #E8F1F5;
+    border: 3px solid #252E56;
+    border-radius: 6px;
+    /* margin: 15px 0; */
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+    transition: 0.05s;
+}
   .landing-image {
     width: 500px;
     height: 500px;
@@ -40,6 +53,9 @@
   
 .about-content{
   display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .about{

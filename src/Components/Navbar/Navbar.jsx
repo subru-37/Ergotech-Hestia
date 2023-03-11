@@ -95,7 +95,7 @@ export default function Navbar() {
             <ul className='navitems' style={{listStyle:'none',flexDirection:'column',display:'flex'}}>
               <Link onClick={toggleDrawer(false)} to='/' className='navitem'>Home</Link>
               <Link onClick={toggleDrawer(false)} to='/Searcher' className='navitem'>Search</Link>
-              <Link onClick={toggleDrawer(false)} to='/' className='navitem'>About Us</Link>
+              <Link onClick={toggleDrawer(false)} to='#about-us' className='navitem'>About Us</Link>
               {
             auths.signedin ? <button className='logout' onClick={()=>{ 
              logout()
