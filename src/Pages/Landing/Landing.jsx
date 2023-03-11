@@ -2,9 +2,11 @@ import React,{useContext} from 'react'
 import { TextField } from '@mui/material';
 import { ThemeContext } from '../../App';
 import SearchIcon from '@mui/icons-material/Search';
+import Footer from '../../Components/Footer/Footer';
 
 import "./Landing.css";
 import Apartment from "../../Assets/apartment.svg";
+import About from "../../Assets/about-team-image.svg";
 import TopPicks from "../../Components/TopPicks/TopPicks";
 import Features from "../../Components/Features/Features";
 import MenuIcon from '@mui/icons-material/Menu';
@@ -131,7 +133,7 @@ export default function Landing() {
         </div>
       </div>
 
-      <h1>Top Picks</h1>
+      {/* <h1>Top Picks</h1>
       <div className="top-picks-cards col">
         <div className="row">
           <TopPicks title="title" desc="desc" />
@@ -143,9 +145,9 @@ export default function Landing() {
           <TopPicks title="title" desc="desc" />
           <TopPicks title="title" desc="desc" />
         </div>
-      </div>
+      </div> */}
 
-      <h1>Why Hestia?</h1>
+      {/* <h1>Why Hestia?</h1>
       <div className="features-grid-container">
         <Features icon="icon" feat="text"/>
         <Features icon="icon" feat="text"/>
@@ -153,19 +155,14 @@ export default function Landing() {
         <Features icon="icon" feat="text"/>
         <Features icon="icon" feat="text"/>
         <Features icon="icon" feat="text"/>
-      </div>
+      </div> */}
 
-      {/* footer */}
-
-      <div className="footer">
-        <h1>Hestia</h1>
-        <div className="options">
-          <h6>Home</h6>
-          <h6>Search</h6>
-          <h6>About Us</h6>
-        </div>
-        <div className="socials"></div>
+      <h1>About Us</h1>
+      <div className='about-content'>
+        <div className='about'><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div>
+        <div className='about-image'><img src={About}></img></div>
       </div>
+      <Footer />
     </div>
 
     
