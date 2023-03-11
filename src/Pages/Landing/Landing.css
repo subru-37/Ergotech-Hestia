@@ -3,7 +3,11 @@
     margin-right: 50px;
     background-color: white;
   }
-  
+  .landing-content{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
   .landing-one {
     display: flex;
   }
