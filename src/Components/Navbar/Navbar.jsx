@@ -63,7 +63,7 @@ export default function Navbar() {
         </div>
         <div className='buttons'>
           {
-            auths.signedin ? <button style={{display:width1>900?'block':'none'}} className='logout' onClick={()=>(logout)}><h3 style={{fontWeight:'400',cursor:'pointer'}}>Log out</h3></button> 
+            auths.signedin ? <button style={{display:width1>900?'block':'none'}} className='logout' onClick={()=>(logout())}><h3 style={{fontWeight:'400',cursor:'pointer'}}>Log out</h3></button> 
                             :
     <div style={{display:'flex',alignItems:'center',flexDirection:'row'}}>
       <button style={{display: width1>900 ? 'flex' : 'none',alignItems:'center',justifyContent:'center'}} onClick={()=>(setSignup(!signup))} className='signup'>Sign up</button>
@@ -90,8 +90,9 @@ export default function Navbar() {
               <Link onClick={toggleDrawer(false)} to='/Searcher' className='navitem'>Search</Link>
               <Link onClick={toggleDrawer(false)} to='/' className='navitem'>About Us</Link>
               {
-            auths.signedin ? <button className='logout' onClick={()=>{
-              return (logout, setDrawer(false));}}></button>:
+            auths.signedin ? <button className='logout' onClick={()=>{ 
+             logout()
+             setDrawer(false)}}></button>:
                             <div>
                             <button style={{display: 'flex',alignItems:'center',justifyContent:'center'}} onClick={()=>{
                                                                                                                 setDrawer(false)

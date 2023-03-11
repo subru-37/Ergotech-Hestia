@@ -53,6 +53,12 @@ export default function Searcher() {
           setSearchResult(details)
       }
     }
+    function changeSlider(){
+        const details = [];
+        if (filters.SliderValue === [1000,2000]){
+          setSearchResult(preview)
+        }
+    }
     function handleSubmit(event){
       const loc = search.location;
       const Name = search.name;
@@ -81,6 +87,7 @@ export default function Searcher() {
               sliderValue: newValue
             };
           }
+
           );
       };
     function handleChange(event) {

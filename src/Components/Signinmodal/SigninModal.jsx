@@ -13,9 +13,11 @@ import { auth } from '../../firebase'
 export default function SigninModal() {
 
   const {user,setUser,signin,setSignin,auths,setAuth,width1} = useContext(ThemeContext);
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  }); 
+  React.useEffect(()=>{
+    onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    }); 
+  })
     const handleSubmit = async (event) => {
       
       event.preventDefault();
