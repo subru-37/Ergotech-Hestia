@@ -217,10 +217,11 @@ export default function Searcher() {
           <div style={{display:'flex',alignItems:'flex-start',flexDirection:'column',width:'80%'}}>
           {checklist.map((value,index)=>{
             return(
-              <FormControlLabel key={index} control={<Checkbox 
+              <FormControlLabel key={index} sx={{'&. MuiTypography-root':{fontSize:'30px'}}}
+              control={<Checkbox 
               name={value}
               checked={filters.value} 
-              sx={{ '& .MuiSvgIcon-root': { fontSize:22  } }} 
+              sx={{ '& .MuiSvgIcon-root': { fontSize: '25px'  } }} 
               onChange={handleCheck}></Checkbox>} label={value} />
             );
           })}
@@ -256,7 +257,7 @@ export default function Searcher() {
                               size='small'
                           />
                           <div><h4>{filters.sliderValue[0]}-{filters.sliderValue[1]}</h4></div>
-                          <button onClick={()=>(changeSlider(filters))}>Submit</button> 
+                          <button onClick={()=>{changeSlider(filters);setDrawer(false)}}>Submit</button> 
                           </div>
                       </div>
                       <div style={{borderBottom:'3px solid #F6F6F6',width:'120%',display:'flex',alignItems:'center',justifyContent:'center'}}><h2 style={{padding:'20px 0'}}
@@ -267,7 +268,7 @@ export default function Searcher() {
                           <FormControlLabel key={index} control={<Checkbox 
                           name={value} 
                           checked={filters.value} 
-                          sx={{ '& .MuiSvgIcon-root': { fontSize:22  } }} 
+                          sx={{ '& .MuiSvgIcon-root': { fontSize:'26px'  } }} 
                           onChange={handleCheck}></Checkbox>} label={value} />
                         );
                       })}
