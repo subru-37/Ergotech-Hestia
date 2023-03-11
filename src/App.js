@@ -23,7 +23,7 @@ function App() {
   const [search,setSearch] = useState({location:'',name:''})
   const [searchResult,setSearchResult] = useState([]);
   const [filters, setFilters] = useState({
-    sliderValue:[1000,2000],
+    sliderValue:[1000,1000],
     wifi:false,
     ac: false,
     food:false,

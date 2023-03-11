@@ -20,9 +20,9 @@ export default function Searcher() {
           return(setSearchResult(preview));
       }  
     },[search.location,search.name])
-    React.useEffect(()=>{
-      Filters(filters)
-    },[filters])
+    // React.useEffect(()=>{
+    //   Filters(filters)
+    // },[filters])
     const toggleDrawer = (open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
           return;
@@ -53,11 +53,27 @@ export default function Searcher() {
           setSearchResult(details)
       }
     }
-    function changeSlider(){
-        const details = [];
-        if (filters.SliderValue === [1000,2000]){
-          setSearchResult(preview)
-        }
+    function changeSlider(arr){
+      const valueSlider = arr.sliderValue;
+      const details = [];
+      if (arr.sliderValue === [1000,1000]){
+        setSearchResult(preview)
+        
+      }
+      else{
+        preview.forEach((pg,index)=>{
+          for(let s in arr){
+            if (s === 'sliderValue'){
+              const keySlider = pg.sliderValue;
+              if ((keySlider[0]>=valueSlider[0] && keySlider[1]<=valueSlider[1]) || (keySlider[1]<=valueSlider[1] && keySlider[1]>=valueSlider[0]) || (keySlider[0]>=valueSlider[0] && keySlider[0]<=valueSlider[1])){
+                details.push(pg)
+              }
+            }
+          }
+        })
+        setSearchResult(details)
+        
+      }
     }
     function handleSubmit(event){
       const loc = search.location;
@@ -87,7 +103,6 @@ export default function Searcher() {
               sliderValue: newValue
             };
           }
-
           );
       };
     function handleChange(event) {
@@ -196,6 +211,7 @@ export default function Searcher() {
                     size='small'
                 />
                 <div><h4>{filters.sliderValue[0]}-{filters.sliderValue[1]}</h4></div>
+                <button onClick={()=>(changeSlider(filters))}>Submit</button>
               </div>
           </div>
           <div style={{borderBottom:'3px solid #F6F6F6',width:'110.5%',display:'flex',alignItems:'center',justifyContent:'center'}}><h2 style={{padding:'20px 0'}}>Facilities</h2></div>
@@ -203,7 +219,7 @@ export default function Searcher() {
           {checklist.map((value,index)=>{
             return(
               <FormControlLabel key={index} control={<Checkbox 
-              name={value} 
+              name={value}
               checked={filters.value} 
               sx={{ '& .MuiSvgIcon-root': { fontSize:22  } }} 
               onChange={handleCheck}></Checkbox>} label={value} />
@@ -240,7 +256,8 @@ export default function Searcher() {
                               max={20000}
                               size='small'
                           />
-                          <div><h4>{filters.sliderValue[0]}-{filters.sliderValue[1]}</h4></div> 
+                          <div><h4>{filters.sliderValue[0]}-{filters.sliderValue[1]}</h4></div>
+                          <button onClick={()=>(changeSlider(filters))}>Submit</button> 
                           </div>
                       </div>
                       <div style={{borderBottom:'3px solid #F6F6F6',width:'120%',display:'flex',alignItems:'center',justifyContent:'center'}}><h2 style={{padding:'20px 0'}}
