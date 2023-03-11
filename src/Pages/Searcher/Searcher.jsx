@@ -10,7 +10,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import {Checkbox} from '@mui/material';
 import SearchCard from '../../Components/SearchCard/SearchCard';
 import CloseIcon from '@mui/icons-material/Close';
-//import { preview } from '../../Assets/data';
+//import { item } from '../../Assets/data';
 import { db } from '../../firebase';
 import { collection, onSnapshot } from "firebase/firestore";
 
@@ -19,7 +19,7 @@ export default function Searcher() {
   const checklist = ['wifi','ac','food','kitchen','pets','abathroom','sdeposit','curfew','hotwater','balcony','furnished','wheelchair']
     const {search,setSearch,filters,setFilters,width1,searchResult,setSearchResult} = useContext(ThemeContext);
     const [drawer, setDrawer] = React.useState(false);
-     /*const preview = () => {
+     /*const item = () => {
       const [info , setInfo] = useState([]);
       // Start the fetch operation as soon as
       // the page loads
@@ -41,20 +41,20 @@ export default function Searcher() {
     } 
   const q = query(collection(db, "cities"), where("ac", "==", true));
 
-  const preview = await getDocs(q);
-  preview.forEach((doc) => {
+  const item = await getDocs(q);
+  item.forEach((doc) => {
   // doc.data() is never undefined for query doc snapshots
   console.log(doc.id, " => ", doc.data());
 });
-  /* const preview = await getDocs(collection(db, "accommodation"));
-    preview.forEach((doc) => {
+  /* const item = await getDocs(collection(db, "accommodation"));
+    item.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshots
       console.log(doc.id, " => ", doc.data());
     });  
     const docRef = doc(db, "location", "Kochi");
-  const preview = await getDoc(docRef);
+  const item = await getDoc(docRef);
 
-  if (preview.exists()) {
+  if (item.exists()) {
   console.log("Document data:", docSnap.data());
 } else {
   // doc.data() will be undefined in this case
@@ -63,9 +63,9 @@ export default function Searcher() {
 } const colRef = collection(db, "accomodation");
  docsSnap = await getDocs(colRef);
 try {
-  const preview = await getDocs(colRef);
-  if(preview.docs.length > 0) {
-     preview.forEach(doc => {
+  const item = await getDocs(colRef);
+  if(item.docs.length > 0) {
+     item.forEach(doc => {
         console.log(doc.data());
         console.log(doc.id);
      })
@@ -108,7 +108,7 @@ useEffect(
       }
       // console.log(keys)
       if (keys.length!==0){
-          preview.forEach((pg,index)=>{
+          item.forEach((pg,index)=>{
             for (let s in keys){
               if (s && keys.find((y)=>(pg[y])) && !(details.includes(pg))){
                   details.push(pg)
@@ -118,18 +118,18 @@ useEffect(
           // console.log(details)
           setSearchResult(details)
       }else{
-        setSearchResult(preview)
+        setSearchResult(item)
       }
     }
     function changeSlider(arr){
       const valueSlider = arr.sliderValue;
       const details = [];
       if (arr.sliderValue === [1000,1000]){
-        setSearchResult(preview)
+        setSearchResult(item)
         
       }
       else{
-        preview.forEach((pg,index)=>{
+        item.forEach((pg,index)=>{
           for(let s in arr){
             if (s === 'sliderValue'){
               const keySlider = pg.sliderValue;
