@@ -1,4 +1,4 @@
-import React,{useContext} from 'react'
+import React,{useEffect, useState, useContext} from 'react'
 import { TextField } from '@mui/material';
 import { ThemeContext } from '../../App';
 import {Drawer} from '@mui/material';
@@ -10,14 +10,83 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import {Checkbox} from '@mui/material';
 import SearchCard from '../../Components/SearchCard/SearchCard';
 import CloseIcon from '@mui/icons-material/Close';
-import { preview } from '../../Assets/data';
-const checklist = ['wifi','ac','food','kitchen','pets','abathroom','sdeposit','curfew','hotwater','balcony','furnished','wheelchair']
+//import { preview } from '../../Assets/data';
+import { db } from '../../firebase';
+import { collection, onSnapshot } from "firebase/firestore";
+
+
 export default function Searcher() {
+  const checklist = ['wifi','ac','food','kitchen','pets','abathroom','sdeposit','curfew','hotwater','balcony','furnished','wheelchair']
     const {search,setSearch,filters,setFilters,width1,searchResult,setSearchResult} = useContext(ThemeContext);
     const [drawer, setDrawer] = React.useState(false);
+     /*const preview = () => {
+      const [info , setInfo] = useState([]);
+      // Start the fetch operation as soon as
+      // the page loads
+      window.addEventListener('load', () => {
+          Fetchdata();
+        });
+      // Fetch the required data using the get() method
+      const Fetchdata = ()=>{
+          db.collection("accomodation").get().then((querySnapshot) => {
+              // Loop through the data and store
+              // it in array to display
+              querySnapshot.forEach(element => {
+                  var data = element.data();
+                  setInfo(arr => [...arr , data]);
+                   
+              });
+          })
+      }
+    } 
+  const q = query(collection(db, "cities"), where("ac", "==", true));
+
+  const preview = await getDocs(q);
+  preview.forEach((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+  console.log(doc.id, " => ", doc.data());
+});
+  /* const preview = await getDocs(collection(db, "accommodation"));
+    preview.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      console.log(doc.id, " => ", doc.data());
+    });  
+    const docRef = doc(db, "location", "Kochi");
+  const preview = await getDoc(docRef);
+
+  if (preview.exists()) {
+  console.log("Document data:", docSnap.data());
+} else {
+  // doc.data() will be undefined in this case
+  console.log("No such document!");
+
+} const colRef = collection(db, "accomodation");
+ docsSnap = await getDocs(colRef);
+try {
+  const preview = await getDocs(colRef);
+  if(preview.docs.length > 0) {
+     preview.forEach(doc => {
+        console.log(doc.data());
+        console.log(doc.id);
+     })
+  }
+} catch (error) {
+  console.log(error);
+} */
+const itemColRef = collection(db, 'pgs')
+const [item, setItem] = useState([])
+
+useEffect(
+    () =>
+        onSnapshot(itemColRef, (snapshot) => {
+            setItem(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })))
+        })
+
+    , [])
+   // {item.map((elem)=> (console.log(elem)))}
     React.useEffect(()=>{
         if (search.location === '' && search.name === ''){
-          return(setSearchResult(preview));
+          return(setSearchResult(item));
       }  
     },[search.location,search.name])
     React.useEffect(()=>{
@@ -39,7 +108,7 @@ export default function Searcher() {
       }
       // console.log(keys)
       if (keys.length === 0){
-        setSearchResult(preview)
+        setSearchResult(item)
       }
       else{
           searchResult.forEach((pg,index)=>{
@@ -56,7 +125,7 @@ export default function Searcher() {
     function handleSubmit(event){
       const loc = search.location;
       const Name = search.name;
-      setSearchResult(preview.filter(({location,name})=>{
+      setSearchResult(item.filter(({location,name})=>{
         return(
           location.toLowerCase().includes(loc.toLowerCase()) && 
           name.toLowerCase().includes(Name.toLowerCase()));

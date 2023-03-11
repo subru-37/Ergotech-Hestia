@@ -6,22 +6,21 @@ import { getAuth} from "firebase/auth";
 
 
 const firebaseConfig = {
-        apiKey: "AIzaSyDNbfqE8F9d6pJCrwWQrMi9QX7hOLn8e18",
-        authDomain: "hestia-73c85.firebaseapp.com",
-        databaseURL: "https://hestia-73c85-default-rtdb.asia-southeast1.firebasedatabase.app",
-        projectId: "hestia-73c85",
-        storageBucket: "hestia-73c85.appspot.com",
-        messagingSenderId: "662574977698",
-        appId: "1:662574977698:web:9d8de00e9f1a7a5a823dfb",
-        measurementId: "G-EY3FGFZSX4"
+        apiKey: "AIzaSyCJ5Cp6kVKV4q08IuFYk8D9M7J7KN6bO-Y",
+         authDomain: "hestia---ergotech.firebaseapp.com",
+        projectId: "hestia---ergotech",
+        storageBucket: "hestia---ergotech.appspot.com",
+        messagingSenderId: "311486461166",
+        appId: "1:311486461166:web:3e319019bf25777cc62fff",
+        measurementId: "G-GWXYQS1RWG"
 }
 
 // Initialize Firebase
-//const db = firebase.realtimeDatabase();
 const app = initializeApp(firebaseConfig);
 //const analytics = getAnalytics(app);
 const db = getFirestore();
 const auth = getAuth();
+
 export {db};
 export default app;
 export {auth}
