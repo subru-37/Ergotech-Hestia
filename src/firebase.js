@@ -12,7 +12,7 @@ const firebaseConfig = {
         storageBucket: "hestia---ergotech.appspot.com",
         messagingSenderId: "311486461166",
         appId: "1:311486461166:web:3e319019bf25777cc62fff",
-        measurementId: "G-GWXYQS1RWG"
+        measurementId: "G-GWXYQS1RWG" 
 }
 
 // Initialize Firebase

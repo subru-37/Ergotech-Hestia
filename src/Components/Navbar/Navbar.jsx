@@ -66,7 +66,7 @@ export default function Navbar() {
         </div>
         <div className='buttons'>
           {
-            (auths.signedin) ? <div style={{display:'flex',justifyContent:'center',flexDirection:'row',alignItems:'center'}}>
+            (!auths.signedin) ? <div style={{display:'flex',justifyContent:'center',flexDirection:'row',alignItems:'center'}}>
             <button style={{display:width1>900?'block':'none'}} className='logout' onClick={()=>(logout())}><h3 style={{fontWeight:'400',cursor:'pointer'}}>Log out</h3></button> 
             <img src={IMG} alt='' style={{width:'40px',height:'40px',borderRadius:'80%',margin:'0 10px 0 30px',cursor:'pointer'}} onClick={()=>(logout())}></img>
             <div style={{display:'flex',alignItems:'center',justifyContent:'center',margin:'0'}}><SettingsIcon sx={{fontSize:'30px'}}/></div>
@@ -98,7 +98,7 @@ export default function Navbar() {
               <Link onClick={toggleDrawer(false)} to='/Ergotech-Hestia/Searcher' className='navitem'>Search</Link>
               <Link onClick={toggleDrawer(false)} to='/Ergotech-Hestia' className='navitem'><ScrollLink activeClass="active" to="about-us" spy={true} smooth={true} offset={50} duration={500}>About Us</ScrollLink></Link>
               {
-            auths.signedin ? <button className='logout' onClick={()=>{ 
+            (!auths.signedin) ? <button className='logout' onClick={()=>{ 
              logout()
              setDrawer(false)}}></button>:
                             <div>
