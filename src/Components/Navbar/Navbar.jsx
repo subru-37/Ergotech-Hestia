@@ -5,6 +5,7 @@ import SegmentIcon from '@mui/icons-material/Segment';
 import {Drawer} from '@mui/material';
 import SettingsIcon from '@mui/icons-material/Settings';
 import './Navbar.css'
+import { Link as ScrollLink } from 'react-scroll';
 import {  signOut } from 'firebase/auth';
 import { auth } from '../../firebase';
 import IMG from '../../Assets/IMG20221025172200.jpg'
@@ -58,9 +59,9 @@ export default function Navbar() {
         </div>
         <div>
           <ul className='navitems' style={{listStyle:'none',flexDirection:'row',display: width1>900 ? 'flex':'none'}}>
-            <Link to='/' className='navitem'>Home</Link>
-            <Link to='/Searcher' className='navitem'>Search</Link>
-            <Link to='/' className='navitem'>About Us</Link>
+            <Link to='/Ergotech-Hestia' className='navitem'>Home</Link>
+            <Link to='/Ergotech-Hestia/Searcher' className='navitem'>Search</Link>
+            <Link to='/Ergotech-Hestia/#about-us' className='navitem'><ScrollLink activeClass="active" to="test1" spy={true} smooth={true} offset={50} duration={500}>About Us</ScrollLink></Link>
           </ul>
         </div>
         <div className='buttons'>
@@ -93,9 +94,9 @@ export default function Navbar() {
             }}}
         >
             <ul className='navitems' style={{listStyle:'none',flexDirection:'column',display:'flex'}}>
-              <Link onClick={toggleDrawer(false)} to='/' className='navitem'>Home</Link>
-              <Link onClick={toggleDrawer(false)} to='/Searcher' className='navitem'>Search</Link>
-              <Link onClick={toggleDrawer(false)} to='#about-us' className='navitem'>About Us</Link>
+              <Link onClick={toggleDrawer(false)} to='/Ergotech-Hestia' className='navitem'>Home</Link>
+              <Link onClick={toggleDrawer(false)} to='/Ergotech-Hestia/Searcher' className='navitem'>Search</Link>
+              <Link onClick={toggleDrawer(false)} to='/Ergotech-Hestia' className='navitem'><ScrollLink activeClass="active" to="about-us" spy={true} smooth={true} offset={50} duration={500}>About Us</ScrollLink></Link>
               {
             auths.signedin ? <button className='logout' onClick={()=>{ 
              logout()

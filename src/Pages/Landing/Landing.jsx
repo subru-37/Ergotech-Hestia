@@ -3,7 +3,6 @@ import { TextField } from '@mui/material';
 import { ThemeContext } from '../../App';
 import SearchIcon from '@mui/icons-material/Search';
 import Footer from '../../Components/Footer/Footer';
-
 import "./Landing.css";
 import Apartment from "../../Assets/apartment.svg";
 import About from "../../Assets/about-team-image.svg";
@@ -163,10 +162,12 @@ export default function Landing() {
 
       <div id='about-us' className='about-content'>
        <div><img alt=''  className='about-image' src={About}></img></div>
-        <div style={{width:'50vw'}}>
+        <div style={{width:'50vw',height:'50vh',display:'flex',justifyContent:'space-around',flexDirection:'column'}}>
           <h1>About Us</h1>
           <div className='about'>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Welcome to Hestia, the ultimate solution for hostelers and young working professionals looking for accommodation in new areas. Our app is designed to make your housing search as seamless and stress-free as possible, allowing you to focus on your work or studies without worrying about where you're going to stay.
+
+What sets us apart from our competitors? For starters, our app is incredibly user-friendly and easy to navigate, even if you're not tech-savvy. We've worked hard to create an intuitive interface that lets you find what you're looking for with just a few clicks..</p>
           </div>
         </div>
       </div>

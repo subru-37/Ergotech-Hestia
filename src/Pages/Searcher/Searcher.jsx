@@ -85,17 +85,17 @@ useEffect(
     , [])
    // {item.map((elem)=> (console.log(elem)))}
     React.useEffect(()=>{
-        if (search.location === '' && search.name === ''){
-          return(setSearchResult(item));
-      }  
-    },[search.location,search.name])
+        setSearchResult(item)
+        console.log('fuck',item)
+    }
+    ,[item])
     React.useEffect(()=>{
       Filters(filters)
     },[filters])
     const toggleDrawer = (open) => (event) => {
-        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-          return;
-        }
+        // if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+        //   return;
+        // }
         setDrawer( open );
       };
     function Filters(arr){
@@ -117,15 +117,17 @@ useEffect(
           })
           // console.log(details)
           setSearchResult(details)
-      }else{
+      }else if (details.length === 0){
         setSearchResult(item)
+        console.log('fuck',item)
       }
     }
     function changeSlider(arr){
       const valueSlider = arr.sliderValue;
       const details = [];
-      if (arr.sliderValue === [1000,1000]){
+      if (arr.sliderValue === [1000,3600]){
         setSearchResult(item)
+        console.log(item)
         
       }
       else{
@@ -152,7 +154,6 @@ useEffect(
           name.toLowerCase().includes(Name.toLowerCase()));
       }))
       event.preventDefault();
-
     }
     function handleCheck(event){
         const {name,checked} = event.target;
@@ -279,7 +280,7 @@ useEffect(
                     size='small'
                 />
                 <div><h4>{filters.sliderValue[0]}-{filters.sliderValue[1]}</h4></div>
-                <div className='submit-filters-div'><button className="filter-submit"onClick={()=>(changeSlider(filters))}>Submit</button></div>
+                <div className='submit-filters-div'><button className="filter-submit" onClick={()=>(changeSlider(filters))}>Submit</button></div>
               </div>
           </div>
           <div style={{borderBottom:'3px solid #F6F6F6',width:'110.5%',display:'flex',alignItems:'center',justifyContent:'center'}}><h2 style={{padding:'20px 0'}}>Facilities</h2></div>
@@ -326,7 +327,7 @@ useEffect(
                               size='small'
                           />
                           <div><h4>{filters.sliderValue[0]}-{filters.sliderValue[1]}</h4></div>
-                          <button onClick={()=>{changeSlider(filters);setDrawer(false)}}>Submit</button> 
+                          <div className='submit-filters-div'><button className="filter-submit" onClick={()=>(changeSlider(filters))}>Submit</button></div> 
                           </div>
                       </div>
                       <div style={{borderBottom:'3px solid #F6F6F6',width:'120%',display:'flex',alignItems:'center',justifyContent:'center'}}><h2 style={{padding:'20px 0'}}
@@ -347,13 +348,14 @@ useEffect(
               
               <div style={{display:'flex',alignItems:'center',flexDirection:'column',justifyContent:'space-around'}}>
               <h2>Showing Results For ....</h2>
-              {searchResult.map(({id,name,mw,description})=>{
+              {searchResult.map(({id,rating,name,mw,description})=>{
                 return(
                   <SearchCard 
                     key={id}
                     title={name}
                     mw={mw}
                     description={description}
+                    rating={rating}
                     />
                 );
               })}

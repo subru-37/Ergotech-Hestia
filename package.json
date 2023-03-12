@@ -17,6 +17,7 @@
     "react-modal": "^3.16.1",
     "react-router-dom": "^6.8.2",
     "react-scripts": "^2.1.8",
+    "react-scroll": "^1.8.9",
     "react-slideshow-image": "^4.2.1",
     "web-vitals": "^2.1.4"
   },

@@ -3,6 +3,7 @@ import './SearchCard.css'
 import imtg from '../../Assets/img-pg.png'
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
+import StarIcon from '@mui/icons-material/Star';
 export default function SearchCard(props) {
   const [state,setState] = useState(false)
   return (
@@ -12,13 +13,14 @@ export default function SearchCard(props) {
             <div className='preview-title'>
                 <p className='title'>{props.title}</p>
                 <div style={{display:'flex',alignItems:'center',height:'50px',flexDirection:'row'}}>
+                <div style={{display:'flex',flexDirection:'row',alignItems:'center',margin:'0 10px'}}><StarIcon sx={{fontSize:'20px',color:'#FFD700'}}/><p>{props.rating}</p></div>
                   <p style={{fontSize:'1.2rem'}}>{props.mw}</p>
                   <button onClick={()=>(setState(!state))} style={{border:'none',background:'transparent',cursor:'pointer',margin:'6px 0 0 10px'}}>{state ? <BookmarkIcon/> : <BookmarkBorderIcon/>}</button>
                 </div>
               </div>
               <p style={{fontWeight: '400',fontSize: '1rem',color: '#2C2A2A',paddingBottom:'10px',lineHeight: '15px'}}>Description</p>
             <div className='preview-desc'><p className='desc'>{props.description}</p></div>
-            <div style={{display:'flex',alignItems:'center',justifyContent:'flex-end',width:'100%'}}><p className='hover-stat'>Read More..</p></div>
+            <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',width:'100%'}}><p className='hover-stat'>Read More..</p></div>
             {/* <div>5 students from MEC are currently staying here</div> */}
         </div>
     </div>

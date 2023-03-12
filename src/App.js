@@ -24,7 +24,7 @@ function App() {
   const [wrongpass,setWrongPass] = useState(false)
   const [searchResult,setSearchResult] = useState([]);
   const [filters, setFilters] = useState({
-    sliderValue:[1000,1000],
+    sliderValue:[1000,3600],
     wifi:false,
     ac: false,
     food:false,
@@ -58,8 +58,8 @@ function App() {
         <SignupModal/>
         <SigninModal/>
         <Routes>
-          <Route path='/' element={<Landing/>}></Route>
-          <Route path='/Searcher' element={<Searcher/>}></Route>
+          <Route path='/Ergotech-Hestia' element={<Landing/>}></Route>
+          <Route path='/Ergotech-Hestia/Searcher' element={<Searcher/>}></Route>
         </Routes>
       </ThemeContext.Provider>
     </div>
