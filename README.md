@@ -4,11 +4,13 @@
 1. [What is Hestia?](#project-description)
 2. [Team Members](#team-members)
 3. [Tech Stack](#tech-stack)
-4. [Assumptions & References](#assumptions)
+4. [Project Description](#project-description)
 5. [Project Demo](#project-demo)
 
+## Tech Stack
+React, Material UI, Firebase, Github (hosting),
+[Hosted Link](https://subru-37.github.io/Ergotech-Hestia/)
 <img src="https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black"><img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"><img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white"><img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"><img src="https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white">
-
 
 Presentation : [PPT Link](https://www.canva.com/design/DAFTudil6cU/VFI5qItIGgk8tVm8sh6Z_A/view?utm_content=DAFTudil6cU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
@@ -16,7 +18,7 @@ Hosted Link : [Hosted Link](https://subru-37.github.io/Ergotech-Hestia/)
 
 ## Project Description
 
-Our Vision: Promote fish farm cultivation using a sustainable manner while earning profit
+Our Vision: 
 
 Target Customers: Students, & Young Working Professionals
 
@@ -29,7 +31,7 @@ The Problem :
 
  
 # Our Solution
-
+ <!--
 ## For basic users :
 - Create a platform for a new individuals to start fish farm cultivation from scratch and earn a livelihood selling fish produce and also for existing farms to simplify their daily work.
 - The platform will have both farmer and customer side, primarily focussed on the farmer side.
@@ -57,17 +59,13 @@ The Problem :
 - Can connect max 3 sensors under free version in each tank. (Cost of sensor born by seller).
 - Can provide transportation via marketplace under paid plan
 
-
+--->
 ## Team Members
-### **Team Name** : Ryzen Sharks
+### **Team Name** : ErgoTech
 1. [Mrinalini Nair Ani](https://github.com/hacksh4w/)
 1. [Subramani E](https://github.com/subru-37)
 1. [Alaka A J](https://github.com/alaka03aj)
 
 
-## Tech Stack
-React, Material UI, Firebase, Github (hosting),
-[Hosted Link](https://subru-37.github.io/Ergotech-Hestia/)
-	
 ## Future Additions 
 - 
