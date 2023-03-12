@@ -11,7 +11,7 @@
 
 
 Presentation : [PPT Link](https://www.canva.com/design/DAFchWR1JRs/8ZhEsKQRoUZ8tfFyaH00nQ/edit(https://www.canva.com/design/DAFTudil6cU/VFI5qItIGgk8tVm8sh6Z_A/view?utm_content=DAFTudil6cU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
-Hosted Link : [Hestia](https://subru-37.github.io/Ergotech-Hestia/)
+Hosted Link : [Hosted Link](https://subru-37.github.io/Ergotech-Hestia/)
 
 ## Project Description
 
@@ -66,7 +66,7 @@ The Problem :
 
 ## Tech Stack
 React, Material UI, Firebase, Github (hosting),
-[Hosted Link](https://subru-37.github.io/Ergotech-Hestia/),
+[Hosted Link](https://subru-37.github.io/Ergotech-Hestia/)
 	
 ## Future Additions 
 - 
