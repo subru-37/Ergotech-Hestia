@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# **<div align="center">Hestia by  ErgoTech</div>**  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
+1. [What is Hestia?](#project-description)
+2. [Team Members](#team-members)
+3. [Tech Stack](#tech-stack)
+4. [Project Description](#project-description)
+5. [Project Demo](#project-demo)
 
-## Available Scripts
+## Tech Stack
+React, Material UI, Firebase, Github (hosting),
+[Hosted Link](https://subru-37.github.io/Ergotech-Hestia/)
+<img src="https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black"><img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"><img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white"><img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"><img src="https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white">
 
-In the project directory, you can run:
+Presentation : [PPT Link](https://www.canva.com/design/DAFTudil6cU/VFI5qItIGgk8tVm8sh6Z_A/view?utm_content=DAFTudil6cU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
-### `npm start`
+Hosted Link : [Hosted Link](https://subru-37.github.io/Ergotech-Hestia/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Project Description
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Our Vision: 
 
-### `npm test`
+Target Customers: Students, & Young Working Professionals
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The Problem :  <!---
+- Many people don't know the benefits of doing aquaponics or doing fish farm cultivation.
+- Even if some realise the benefits, they don't know of proper good resources to actually start the cultivation
+- Once you start the cultivation, the current methods takes time and is prone to trial and error during the initial days
+- You would need to manually go and check every often to ensure that the fishes are in good health  
+- Even once the fishes are in good health, the seller don't know how exactly to market them to potential customers
 
-### `npm run build`
+  --->
+# Our Solution
+ <!--
+## For basic users :
+- Create a platform for a new individuals to start fish farm cultivation from scratch and earn a livelihood selling fish produce and also for existing farms to simplify their daily work.
+- The platform will have both farmer and customer side, primarily focussed on the farmer side.
+ 
+## For the seller:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## For the buyer who would like to have fresh farm products
 
-### `npm run eject`
+- Consider swiggy for fresh marine farm products
+- The buyer can (log in and ) use our marketplace and search for a particular fresh fish produce near them
+- This will show all the marketplaces selling this product near them.
+- There will be a way to make orders from our app to this farmer
+- Based on this order, the seller can deliver the produce to the buyer
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Our offerings
+- No installation charges for sensors
+- Our app offers features like monitoring and timely alerts
+- Once they have started reaching a state for selling fishes, we offer visibility in our marketplace
+- Mobile-Friendly Design
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Revenue Model
+- Can add max 2 tanks in free version
+- Can connect max 3 sensors under free version in each tank. (Cost of sensor born by seller).
+- Can provide transportation via marketplace under paid plan
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+--->
+## Team Members
+### **Team Name** : ErgoTech
+1. [Mrinalini Nair Ani](https://github.com/hacksh4w/)
+1. [Subramani E](https://github.com/subru-37)
+1. [Alaka A J](https://github.com/alaka03aj)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Future Additions 
+- Location based features
+- Analysis & Stats
