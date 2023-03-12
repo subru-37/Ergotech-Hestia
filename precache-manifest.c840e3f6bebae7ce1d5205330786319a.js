@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "f6ae1f4611884f45175f",
+    "revision": "1cd5f1cfe5f529443aee",
     "url": "/Ergotech-Hestia/static/css/main.aeb9c212.chunk.css"
   },
   {
-    "revision": "f6ae1f4611884f45175f",
-    "url": "/Ergotech-Hestia/static/js/main.8fe7ba34.chunk.js"
+    "revision": "1cd5f1cfe5f529443aee",
+    "url": "/Ergotech-Hestia/static/js/main.065004af.chunk.js"
   },
   {
     "revision": "bb3c2f4f42db21962611",
@@ -36,7 +36,7 @@ self.__precacheManifest = [
     "url": "/Ergotech-Hestia/static/media/IMG20221025172200.d50caca3.jpg"
   },
   {
-    "revision": "1f6506624a65be2b3c7b5f0cb11d7d40",
+    "revision": "6a9c8621cade39e7de47ee599a0efdf2",
     "url": "/Ergotech-Hestia/index.html"
   }
 ];
