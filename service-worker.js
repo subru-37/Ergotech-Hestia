@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Ergotech-Hestia/precache-manifest.b17c7936d33117d6fa8fb52257242c4e.js"
+  "/Ergotech-Hestia/precache-manifest.c840e3f6bebae7ce1d5205330786319a.js"
 );
 
 workbox.clientsClaim();
