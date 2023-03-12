@@ -22,14 +22,14 @@ Our Vision:
 
 Target Customers: Students, & Young Working Professionals
 
-The Problem :  
+The Problem :  <!---
 - Many people don't know the benefits of doing aquaponics or doing fish farm cultivation.
 - Even if some realise the benefits, they don't know of proper good resources to actually start the cultivation
 - Once you start the cultivation, the current methods takes time and is prone to trial and error during the initial days
 - You would need to manually go and check every often to ensure that the fishes are in good health  
 - Even once the fishes are in good health, the seller don't know how exactly to market them to potential customers
 
- 
+  --->
 # Our Solution
  <!--
 ## For basic users :
@@ -68,4 +68,5 @@ The Problem :
 
 
 ## Future Additions 
-- 
+- Location based features
+- Analysis & Stats
