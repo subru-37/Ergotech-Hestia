@@ -36,7 +36,6 @@ The Problem :  <!---
 - Once you start the cultivation, the current methods takes time and is prone to trial and error during the initial days
 - You would need to manually go and check every often to ensure that the fishes are in good health  
 - Even once the fishes are in good health, the seller don't know how exactly to market them to potential customers
-
   --->
   Road Map : 
   
