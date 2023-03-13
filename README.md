@@ -25,6 +25,10 @@ Find your perfect home away from home with just a few clicks. Affordable housing
 We provide the ultimate solution for hostelers and young working professionals looking for accommodation in new areas. Our app is designed to make your housing search as seamless and stress-free as possible, allowing you to focus on your work or studies without worrying about where you're going to stay.
 Target Customers: Students, & Young Working Professionals. 
 
+What sets us apart from our competitors? For starters, our app is incredibly user-friendly and easy to navigate, even if you're not tech-savvy. We've worked hard to create an intuitive interface that lets you find what you're looking for with just a few clicks.
+
+We offer a robust database of housing options that are both affordable and comfortable. Young people often have limited budgets, so we've made it a priority to offer options that won't break the bank. But we also know that you want to feel at home in your new place, so we've made sure to include amenities that will make your stay enjoyable and comfortable.
+
 The Problem :  <!---
 - Many people don't know the benefits of doing aquaponics or doing fish farm cultivation.
 - Even if some realise the benefits, they don't know of proper good resources to actually start the cultivation
