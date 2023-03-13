@@ -10,6 +10,7 @@
 ## Tech Stack
 React, Material UI, Firebase(SDK), Github (hosting), npm
 [Hosted Link](https://subru-37.github.io/Ergotech-Hestia/)
+
 <img src="https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black"><img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"><img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white"><img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"><img src="https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white">
 
 Presentation : [PPT Link](https://www.canva.com/design/DAFTudil6cU/VFI5qItIGgk8tVm8sh6Z_A/view?utm_content=DAFTudil6cU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
@@ -37,7 +38,14 @@ The Problem :  <!---
 - Even once the fishes are in good health, the seller don't know how exactly to market them to potential customers
 
   --->
-# Our Solution
+  Road Map : 
+  
+  
+ Future Plans :
+  - Virtual Tours : By adding virtual tours to your app, you can provide users with a 360-degree view of the accommodations they're interested in, allowing them to
+  explore every corner of the room or property.
+  - In-App Texting :  Owners and Interested parties can communicate seamlessly with each other app. 
+  - Local events and activities : A community page to publicise local events.
  <!--
 ## For basic users :
 - Create a platform for a new individuals to start fish farm cultivation from scratch and earn a livelihood selling fish produce and also for existing farms to simplify their daily work.
