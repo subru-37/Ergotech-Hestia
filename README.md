@@ -1,4 +1,5 @@
 # **<div align="center">Hestia by  ErgoTech</div>**  
+A Project made for MEC LABS, as a part of Excel 2022
 
 ## Table of Contents
 1. [What is Hestia?](#project-description)
@@ -9,7 +10,6 @@
 
 ## Tech Stack
 React, Material UI, Firebase(SDK), Github (hosting), npm
-[Hosted Link](https://subru-37.github.io/Ergotech-Hestia/)
 
 <img src="https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black"><img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"><img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white"><img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"><img src="https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white">
 
