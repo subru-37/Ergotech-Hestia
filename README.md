@@ -8,7 +8,7 @@
 5. [Project Demo](#project-demo)
 
 ## Tech Stack
-React, Material UI, Firebase, Github (hosting),
+React, Material UI, Firebase(SDK), Github (hosting), npm
 [Hosted Link](https://subru-37.github.io/Ergotech-Hestia/)
 <img src="https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black"><img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"><img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white"><img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"><img src="https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white">
 
@@ -20,7 +20,10 @@ Hosted Link : [Hosted Link](https://subru-37.github.io/Ergotech-Hestia/)
 
 Our Vision: 
 
-Target Customers: Students, & Young Working Professionals
+Find your perfect home away from home with just a few clicks. Affordable housing at your fingertips - search now!
+
+We provide the ultimate solution for hostelers and young working professionals looking for accommodation in new areas. Our app is designed to make your housing search as seamless and stress-free as possible, allowing you to focus on your work or studies without worrying about where you're going to stay.
+Target Customers: Students, & Young Working Professionals. 
 
 The Problem :  <!---
 - Many people don't know the benefits of doing aquaponics or doing fish farm cultivation.
