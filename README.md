@@ -30,12 +30,7 @@ What sets us apart from our competitors? For starters, our app is incredibly use
 
 We offer a robust database of housing options that are both affordable and comfortable. Young people often have limited budgets, so we've made it a priority to offer options that won't break the bank. But we also know that you want to feel at home in your new place, so we've made sure to include amenities that will make your stay enjoyable and comfortable.
 
-The Problem :  <!---
-- Many people don't know the benefits of doing aquaponics or doing fish farm cultivation.
-- Even if some realise the benefits, they don't know of proper good resources to actually start the cultivation
-- Once you start the cultivation, the current methods takes time and is prone to trial and error during the initial days
-- You would need to manually go and check every often to ensure that the fishes are in good health  
-- Even once the fishes are in good health, the seller don't know how exactly to market them to potential customers--->
+
   Road Map : 
   
   
@@ -45,6 +40,12 @@ The Problem :  <!---
   - In-App Texting :  Owners and Interested parties can communicate seamlessly with each other app. 
   - Local events and activities : A community page to publicise local events.
  <!--
+The Problem :
+- Many people don't know the benefits of doing aquaponics or doing fish farm cultivation.
+- Even if some realise the benefits, they don't know of proper good resources to actually start the cultivation
+- Once you start the cultivation, the current methods takes time and is prone to trial and error during the initial days
+- You would need to manually go and check every often to ensure that the fishes are in good health  
+- Even once the fishes are in good health, the seller don't know how exactly to market them to potential customers
 ## For basic users :
 - Create a platform for a new individuals to start fish farm cultivation from scratch and earn a livelihood selling fish produce and also for existing farms to simplify their daily work.
 - The platform will have both farmer and customer side, primarily focussed on the farmer side.
