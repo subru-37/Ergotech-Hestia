@@ -6,7 +6,7 @@ import { getAuth} from "firebase/auth";
 
 
 const firebaseConfig = {
-        apiKey: 'AIzaSyCJ5Cp6kVKV4q08IuFYk8D9M7J7KN6bO-Y',
+        apiKey: 'IzaSyDNbfqE8F9d6pJCrwWQrMi9QX7hOLn8e18',
          authDomain: "hestia-73c85.firebaseapp.com",
         projectId: 'hestia-73c85',
         storageBucket:  'hestia-73c85.appspot.com',
