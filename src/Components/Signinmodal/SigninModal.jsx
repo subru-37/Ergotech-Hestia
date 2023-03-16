@@ -85,6 +85,7 @@ export default function SigninModal() {
         shouldFocusAfterRender={true}
         shouldCloseOnOverlayClick={true}
         isOpen={signin && (!auths.signedin)}
+        ariaHideApp={false}
         // onAfterOpen={afterOpenModal}
         onRequestClose={()=>(setSignin(false))}
         style={customStyles}

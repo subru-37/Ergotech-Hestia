@@ -86,7 +86,6 @@ useEffect(
    // {item.map((elem)=> (console.log(elem)))}
     React.useEffect(()=>{
         setSearchResult(item)
-        console.log('fuck',item)
     }
     ,[item])
     React.useEffect(()=>{
@@ -119,7 +118,6 @@ useEffect(
           setSearchResult(details)
       }else if (details.length === 0){
         setSearchResult(item)
-        console.log('fuck',item)
       }
     }
     function changeSlider(arr){

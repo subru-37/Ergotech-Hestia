@@ -61,7 +61,8 @@ export default function Navbar() {
           <ul className='navitems' style={{listStyle:'none',flexDirection:'row',display: width1>900 ? 'flex':'none'}}>
             <Link to='/Ergotech-Hestia' className='navitem'>Home</Link>
             <Link to='/Ergotech-Hestia/Searcher' className='navitem'>Search</Link>
-            <Link to='/Ergotech-Hestia/#about-us' className='navitem'><ScrollLink activeClass="active" to="test1" spy={true} smooth={true} offset={50} duration={500}>About Us</ScrollLink></Link>
+            <Link to='/Ergotech-Hestia' className='navitem'>About us</Link> 
+            {/* {<ScrollLink activeClass="active" to="test1" spy={true} smooth={true} offset={50} duration={500}>About Us</ScrollLink>} */}
           </ul>
         </div>
         <div className='buttons'>

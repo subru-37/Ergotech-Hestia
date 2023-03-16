@@ -86,6 +86,7 @@ export default function SignupModal() {
     <Modal
         closeTimeoutMS={100}
         shouldFocusAfterRender={true}
+        ariaHideApp={false}
         shouldCloseOnOverlayClick={true}
         isOpen={signup && (!auths.signedin)}
         // onAfterOpen={afterOpenModal}
